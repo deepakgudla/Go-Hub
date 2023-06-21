@@ -14,10 +14,50 @@ Types in GO
   complex ?
 	complex numbers of imaginary values iota [i] and stuff
 
+**specification types in golang
+. boolean
+. numeric
+. string
+. array
+. slice
+. struct
+. pointer
+. function
+. interface
+. map
+. channel
+
 --------ARRAYS-----------
-SLICES
-MAPS
-STRUCTS
+- static
+- numbered sequence of elements of the same type
+- does not change in size
+- used for go internals...( ? )
+> mostly used as a building block in the go
+
+---------SLICES--------------
+- dynamic
+- built on top of an array
+- holds values of the same type
+- changes in size
+- has a length and capacity..
+- composite literals (?) are used to create a slice
+- composite literal is created by having the type followed by curly braces and then putting the appropriate values in he curly brace area..
+
+--------MAPS---------
+- key value storage
+- an ordered group of values of one type called the element type indexed by a set of unique keys of another type called the key type (k,v)
+
+---------STRUCTS----------
+- a data structure
+- a composite tye
+- allows us to collect values of different types together
+
+--------POINTERS--------
+pointers pass the memory address of the variable
+direct reference to the memory address
+
+
+
 --------POINTERS--------
 pointers pass the memory address of the variabe
 direct reference to the memory address
@@ -82,7 +122,6 @@ non-zeroed storage
 %t - booleans
 %v - values of any type - default format (?)
 %T - for the type of value (returns the datatype of var)
-
 -----------------------------------------------------------
 
 in golang we cannot take a value that is float32 and store  it in a var that is declared to hold a value of float64
