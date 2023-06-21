@@ -1,0 +1,266 @@
+GO
+
+
+Types in GO
+  strings
+  Bool
+  Integer --> uint8 uint64, int8, int64, uintptr
+  	uint - unsigned integers --> cannot have -ve integers
+  	int - both -ve & +ve integers
+  	uintpr - unisgned pointer ?
+  floating
+	float32
+	float64
+  complex ?
+	complex numbers of imaginary values iota [i] and stuff
+
+--------ARRAYS-----------
+SLICES
+MAPS
+STRUCTS
+--------POINTERS--------
+pointers pass the memory address of the variabe
+direct reference to the memory address
+
+FUNCIONS
+CHANNELS
+MUTEX
+
+for the data types of uint8 uint64 int8 and int64 
+the limit for each of them are 2^8 - 1 i.e (0 - 255)
+if for a variable of type uint8 is declared and initialized with the value 256 it throws an error saying the limit is out of bound...
+same goes with every other datatype...
+
+if the variable is initialized and not declared any value to it. it throws a default value of 0
+for string it does not throw any error gives an empty line.......
+
+implicit type of data types
+let say if we initialized a var without the datatype and declared a var with the value "abcd" go assumes it as a string.. 
+with the same var name if we try to assign another value it throws an   error..
+
+
+without using the var keyword we can declare a var using " := " operatoronly inside the main function
+
+outside the main function we need to use var keyword..
+
+there is no try catch block kind of feature in go
+instead there is a conept called as ,ok(some call err ok) which behaves similar to try catch block
+
+in I/o if there is no error, it prints <nil> instead of neglecting in any other languages....
+
+
+standard time for date formatting - 01-01-2006
+
+significance of go env commnand. execute go env in the root folder. 
+go mod should be there....
+
+MEMORY MANAGEMENT - pkg.go.dev/runtime
+
+* garbage collection happens automatically
+* anything out of scope becomes nil
+
+memory allocation & deallocation happens automatically...
+
+two methods
+
+new ()
+   allocate memory but not initialized
+   we will get a memory address
+   zeroed storage
+
+make()
+allocate memory and initialized
+will get a memory address
+non-zeroed storage
+
+**fmt stands for format** 
+-----------------------------------------------------------
+%d - integers
+%b - binary
+%x - hexadecimal
+%s - strings
+%t - booleans
+%v - values of any type - default format (?)
+%T - for the type of value (returns the datatype of var)
+
+-----------------------------------------------------------
+
+in golang we cannot take a value that is float32 and store  it in a var that is declared to hold a value of float64
+
+
+specification types in golang
+
+- boolean
+- numeric
+- string
+- Array
+- slice
+- struct
+- pointer
+- function
+- interface
+- map
+- channel 
+-----------------------------------------
+
+the act of constructing a struct which is a composite type is known as composition
+many different types into one structure which composes of those different types together into that one ds - its a ds which holds values of many diiferent types(wtf does this sentence mean)...
+
+
+when a program needs to store large amounts of data or data with a longer lifetime than stack it must use the heap..
+misssed about go  routine from while editor got stuck need to re learn about go routine from L63 or L64
+
+go runtime provides automatic memory management for both the struct and the heap making it easy to write and scalable concurrent programs....
+
+GO COMPILER is a program that translates go src code into machine readable binary code that can be executed by a compiler
+go compiler is responsible for several tasks including
+- parsing
+        compiler reads the src code and breaks it down into a series of tokens which are analyzed by the syntax errors..
+- type checking
+        compiler checks that the types of var and expressions in the code are consistent and correct according to the rules of golang
+- optimization
+        runs optimizations to the code to make the code more efficient
+
+*** PROGRAM EXECUTION IN GO****
+ complete program is created by linking a single unimported package called the main package with all the packages it imports...
+
+the main package must have the package main and declare a function main
+that takes no arguments and returns no value...
+
+func main() {
+fmt.Println(" hello this is golang")
+}
+
+program execution begins by initializing the main package and then invoking the function main..
+when that invocation returns the program exits.. it does not wait for other goroutines to complete....
+
+
+comparison operators
+
+== equal
+!= not equal
+< less
+<= les than or equal
+> greater
+>= greater than equal...
+
+logical operators..
+
+&& AND
+||or
+! NOT
+
+--------------------------
+condition     | result
+--------------------------
+true && true  | true
+true && false | false
+true || true  | true
+true || false | true
+!true 	      | false
+-------------------------
+
+&& requires both of them true to run
+
+|| requires one of them to be true to run..
+
+
+SELECT STATEMENT:
+used when writing concurrency codes
+a select statement chooses which of a set of possible send or recieve operations will proceed
+SELECT statement looks similar to a switch statement but with the cases all referring to communication operations
+
+CONCURRENCY refers to to code that is written in a concurrent design pattern which means the code has the potential ability to execute multiple tasks simultaneously where each task may make progress independently of others...
+
+in go concurrency is achieved using go routines, lightweight threads of execution that are managed in go routine..
+- a go program an create many go routines that run concurrently each performing a different task
+- communication and synchronization of these go routines is done using   channels which provide a way fofr go routine to exchange data and coordinate their execution..
+
+
+**LOOPS**
+
+--FOR statement-
+there are three ways we can use loops in GO for the FOR keyword
+- for init; condition; post{}
+- for condition {}
+- for {}
+keywords
+- break
+- continue
+
+the go for loop is ~ but not same as For loops in C
+unifies for and while and there is no do while
+
+there are loop forms only one has semicolon...
+ form 1
+
+like a C for
+for init; condition; post{}
+
+like a c while
+for condition {}
+
+//like a C for {; ;}
+for{}
+
+***NESTED-LOOPS***
+
+- used to repeat a set of instructions multiple times
+- consists of one loop inside another loop
+in a nested loop
+- outer loop is executed first
+- for each iteration of the outer loop the inner loop is executed completely
+- inner loops executes its set of instructions for every iteration of the outer loop
+
+nested loops are commonly used when working with multi dimensional ds such as arrays or matrices..
+ nested loops can also be used for tasks that require performing a specific action for every combination of two or more variables...
+------------------------------------------------------
+outer loop => i :=0; i <3; i++
+inner loop => j :=0; j <5; j++
+ 
+outer loop condition zero
+entire condition of inner loop - 0 1 2 3 4
+outer loop condition one
+entire condition of inner loop - 0 1 2 3 4
+outer loop condition two
+entire condition of inner loop - 0 1 2 3 4
+----------------------------------------------------
+
+MAPS will not return things in any particular order...
+range url : go.dev/doc/effective_go/for
+
+*****GO-MOD*****
+
+dependency management is the process of identifying, organizing and resolving the external code libraries and packages that a software application or project depends upon....
+
+dependency management ensures that all required libraries and packages are available and compatible with each other
+
+any updates/changes to those dependencies are managed and controlled to prevent issues that could arise due to conflictiong versions or changes
+
+tools for managing dependencies in programming:
+
+npm - nodejs
+pip - python
+maven - java
+*****************
+
+in go we create modules
+ modules have packages
+
+modules are pushed to git repository
+
+namespacing
+-- domain/username/repo
+
+dependency management problem - RUSS COX ?
+
+installing packages?
+-- go mod init <module-name>
+
+rewatch L44: regarding sphagetti code and modular code/structured programming
+
+
+
+
+
+
