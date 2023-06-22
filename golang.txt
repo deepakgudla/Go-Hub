@@ -15,19 +15,6 @@ Types in GO
   complex ?
 	complex numbers of imaginary values iota [i] and stuff
 
-**specification types in golang**
-boolean
-numeric
-string
-array
-slice
-struct
-pointer
-function
-interface
-map
-channeli
-
 --------ARRAYS-----------
 - static
 - numbered sequence of elements of the same type
@@ -183,7 +170,6 @@ in golang we cannot take a value that is float32 and store  it in a var that is 
 
 
 specification types in golang
-
 - boolean
 - numeric
 - string
