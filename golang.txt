@@ -1,6 +1,5 @@
-*****golang*****
-
 GO
+
 
 Types in GO
   strings
@@ -15,89 +14,92 @@ Types in GO
   complex ?
 	complex numbers of imaginary values iota [i] and stuff
 
+**specification types in golang
+. boolean
+. numeric
+. string
+. array
+. slice
+. struct
+. pointer
+. function
+. interface
+. map
+. channel
+
 --------ARRAYS-----------
 - static
 - numbered sequence of elements of the same type
 - does not change in size
 - used for go internals...( ? )
-> mostly used as a building block in the go 
+> mostly used as a building block in the go
 
-
-------SLICES-----
-link - go.dev/blog/slices-intro
+---------SLICES--------------
 - dynamic
 - built on top of an array
 - holds values of the same type
 - changes in size
 - has a length and capacity..
 - composite literals (?) are used to create a slice
-- composite literal is created by having the type followed by curly brac  es and then putting the appropriate values in he curly brace area..
-#FOR range in slices
-we can loop over the values in a slice with the range clause
-we can also access items in a slice by index position
-#SLICING A SLICE
-we can slice a slice which means that we can cut parts of the slice awaywhich can be done with the colon :  operator
-#types of slicing
-[inclusive:exclusive]
-        in this case the exclusive element gets sliced...
-[inclusive:] slice - prints including from that element
-[:exclusive] slice - prints the values before that position
-#deleting a slice
-lets say there are 0,1,3,5,7,11,13,135,1357,77 values in the slice
-//delete single element at index - 2 ---> [:2], [3:]
-//delete multiple elements from index 1-7 --> [:1], [7:]
+- composite literal is created by having the type followed by curly braces and then putting the appropriate values in he curly brace area..
 
-//MAKE
-make built-in function allocates and initializes an object of type slice,map or chan(only)
-in make first argument is a type and not value....
-makes return type is the same as the type of its argument not a pointer to it
-the underlying array does not grow in size
-we can use the built in function to specify how large our slice should be and also how large the underlying should be
-
---> make([]T, length,capacity)
---> make([]int, x, y)
-//MAKE Map
-an empty map is allocated with enough space to hold the specified number of elements. the size may be omitted in which a small starting size is allocated
-
-//MAKE channel
-the channels buffer is initialized with the specified buffer capacity.
-if 0 or the size is omitted, the channel is unbuffered
-
-> the size of a slice specifies the length. capacity of the slice is equal to its length.
-> second integer argument may be provided to specify a different capacity and it must be no smaller than the length
-
-
-//COPY
-copy built in function copies elements from a source slice into a destination slice
-src ande dest may overlap
-copy returns the number of elements copied which will be the min of
- len(src) & len (dest)
-slices allows us to composite or aggregate values of same type...
-slice is a data structure with three elements
-- len
-- cap
-- pointer to an array
-
-MAPS
+--------MAPS---------
 - key value storage
 - an ordered group of values of one type called the element type indexed by a set of unique keys of another type called the key type (k,v)
-- map is composite/aggregate data structure and allows us to store key and value..
-- store some value and access that value by a key
-- syntax map[key]value
-- key can be of any type which allows comparison(eg: str, int)
-- maps are unordered
-- if we print out all of the keys and values in a map, they will print out in a random order.
-- map is the perfect data structure when we need to look up data fast
-# to delete an element from the map we can use DELETE keyword
-delete function deletes the element with the specified key
-(mapname[key]) from the map, if mi is nil or there is no such element delete is a no-op (no-op ?)
-- no error is thrown if we use a key that does not exist...
--comma ok idiom helps us to find out whether or not key existed in the map
 
-STRUCTS
+---------STRUCTS----------
 - a data structure
-- a composite tye
-- allows us to collect values of different types together
+- a composite data type
+- allows us to compose together values of different types
+#embedded structs
+take one struct and embed it in another struct. when we do this inner type gets promoted to the outer type
+#anonymous struct
+an anonymous struct is a struct which is not associated with a specific identifier..
+#composition 
+~ to inheritance in OOPs
+composition refers to a way of strcuturing and building complex types by combining multiple types which are simple
+- it is one of the OOPs programming and allows to create flexible and readable code
+- composition can be done by embedding one struct type within another
+- fields and methods of embedded inner struct becomes accesiible to the outer struct
+inner type can be used by outer type
+methods of inner type can also be accessed by the outer type
+GO DOESN'T HAVE A built-in INHERITANCE MECHANISM
+- composition provides a way to create relationships between different types without the need for traditional inheritance
+we create TYPEs in GO
+user defined types
+	values fo that type
+	can assign values of a user defined type to variables
+##GO is object oriented
+1. ENCAPSULATION
+	state (fields)
+	behaviour(methods)
+	exported/unexported --> viewable/not-viewable
+2. REUSABILITY
+	inheritance(embedded types(struct,slice,map))
+3. POLYMORPHISM
+	inheritances
+4. OVERRIDING
+	promotion???
+--------
+in traditional OOPs there will be classes(ds describing a type of obj)
+in wihch we can create instances/objects from the class and 
+these classes can hold state/data/fields and behaviour/methods and 
+these can be public/private and also there will be in inheritance
+But in GO
+we create types; we dont create classes
+we dont instantiate but create a value of a type
+-- we can declare a new type
+* Anonymous types - -L126
+	- indeterminate
+$padding & architectural
+convention:
+logically organize fields
+readability and clarity trumps performance as a design concern
+if a position occurs to prioritize performace,
+lay the fields out from largest to smallest eg: int64, float32, bool
+
+
+
 
 --------POINTERS--------
 pointers pass the memory address of the variable
@@ -163,13 +165,13 @@ non-zeroed storage
 %t - booleans
 %v - values of any type - default format (?)
 %T - for the type of value (returns the datatype of var)
-
 -----------------------------------------------------------
 
 in golang we cannot take a value that is float32 and store  it in a var that is declared to hold a value of float64
 
 
 specification types in golang
+
 - boolean
 - numeric
 - string
@@ -339,34 +341,8 @@ installing packages?
 
 rewatch L44: regarding sphagetti code and modular code/structured programming
 
-**RESERVED-KEYWORDS  --> [go.dev/ref/spec#keywords]
-- break
-- case
-- chan
-- const
-- continue
-- default
-- defer
-- else
-- fallthrough
-- for
-- func
-- go
-- goto
-- if
-- import
-- interface
-- map
-- package
-- range
-- return
-- select
-- struct
-- switch
-- type
-- var
-**these keywords cannot be used as identifiers in go
 
-> integer literal - an integer literal is a sequence of digits represnting an integer constant
+
+
 
 
