@@ -1,6 +1,5 @@
 GO
 
-
 Types in GO
   strings
   Bool
@@ -12,7 +11,7 @@ Types in GO
 	float32
 	float64
   complex ?
-	complex numbers of imaginary values iota [i] and stuff
+	complex numbers of imaginary values iota [i] etc...
 
 **specification types in golang
 . boolean
@@ -99,13 +98,11 @@ if a position occurs to prioritize performace,
 lay the fields out from largest to smallest eg: int64, float32, bool
 
 
-
-
 --------POINTERS--------
 pointers pass the memory address of the variable
 direct reference to the memory address
 
-FUNCIONS
+FUNCTIONS
 CHANNELS
 MUTEX
 
@@ -127,7 +124,7 @@ without using the var keyword we can declare a var using " := " operatoronly ins
 outside the main function we need to use var keyword..
 
 there is no try catch block kind of feature in go
-instead there is a conept called as ,ok(some call err ok) which behaves similar to try catch block
+instead there is a conept called as  [ ,ok ]  (some call err ok) which behaves similar to try catch block
 
 in I/o if there is no error, it prints <nil> instead of neglecting in any other languages....
 
@@ -168,22 +165,6 @@ non-zeroed storage
 -----------------------------------------------------------
 
 in golang we cannot take a value that is float32 and store  it in a var that is declared to hold a value of float64
-
-
-specification types in golang
-
-- boolean
-- numeric
-- string
-- Array
-- slice
-- struct
-- pointer
-- function
-- interface
-- map
-- channel 
------------------------------------------
 
 the act of constructing a struct which is a composite type is known as composition
 many different types into one structure which composes of those different types together into that one ds - its a ds which holds values of many diiferent types(wtf does this sentence mean)...
