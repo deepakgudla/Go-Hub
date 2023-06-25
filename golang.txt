@@ -97,10 +97,29 @@ readability and clarity trumps performance as a design concern
 if a position occurs to prioritize performace,
 lay the fields out from largest to smallest eg: int64, float32, bool
 
-
+*int - pointer to int
 --------POINTERS--------
+can also be called as reference types.
 pointers pass the memory address of the variable
 direct reference to the memory address
+pointer is a memory address
+every location in a pointer has an address
+all values are stored in memory
+pointers refers to a variable that holds the memory address.
+**pointers allows us to directly manipulate memory and vuild complex data structures..
+ improper usage of pointers can lead to bugs and errors..
+* fundamental operations involving pointers..
+	address operator ( & ) --> gives the address 
+		this operator is used to get the memory address of the var
+		eg : if x := 1357 &X will give a pointer to 1357 , it is basically a memory address where the value 1357 is stored...
+	dereferencing operator ( * ) --> gives the value/reference at/to memory address
+		this operator is used to get the value stored at a memory address
+		eg: if a is a pointer to an integer(1357) then *a gives the integer that a points to..
+		if a var is a ptr to something, which is an address, a reference to some address,
+		where a value is stored, we can see the value a that address using  asterisk ( * )
+*
+
+
 
 FUNCTIONS
 CHANNELS
