@@ -1,5 +1,7 @@
 GO
-
+***
+go term for threads --> goroutine
+***
 Types in GO
   strings
   Bool
@@ -34,6 +36,10 @@ Types in GO
 > mostly used as a building block in the go
 
 ---------SLICES--------------
+- descriptor of an array segment
+	 includes pointer to the array
+	 length of the segment
+	 capacity(max length of the segment)
 - dynamic
 - built on top of an array
 - holds values of the same type
@@ -45,6 +51,8 @@ Types in GO
 --------MAPS---------
 - key value storage
 - an ordered group of values of one type called the element type indexed by a set of unique keys of another type called the key type (k,v)
+- powerful data structure that associates value of one type (key) with the value of another type (value)
+- unordered collection of key value pairs
 
 ---------STRUCTS----------
 - a data structure
@@ -99,6 +107,17 @@ lay the fields out from largest to smallest eg: int64, float32, bool
 
 *int - pointer to int
 --------POINTERS--------
+- type of data that refers to or points to the location in memory of a value
+- go has several reference types including
+	pointers
+	slices
+	maps
+	channels
+	functions
+	INTERFACES
+-
+- holds the memory address of a value
+- allows to directly access and modify the memory location of a value
 can also be called as reference types.
 pointers pass the memory address of the variable
 direct reference to the memory address
@@ -118,11 +137,69 @@ pointers refers to a variable that holds the memory address.
 		if a var is a ptr to something, which is an address, a reference to some address,
 		where a value is stored, we can see the value a that address using  asterisk ( * )
 *
+POINTER itself is passed by value(fn gets a copy of the address) but the data it points to is same
+dereferencing(* ) the pointer and modifying the value it points to inside the function will modify the original value 
+In go all data is passed by value, i.e whenever we pass data to a function, 
+go creates a copy of that data and assigns the copy to a parameter var
+the function can do whatever it wants to copy without affecting the original data
+
+immutable data types like float str int etc are safe from ptrs?... 
+when passed by value any changes made in this function wont affect the original value..
+
+IN GO EVERYTHING IS PASSED BY VALUE
 
 
+mutable --> value that can be changed
+in go slices maps and pointers are mutable types
+even though slices maps and pointers are passed by value they still behave as if they are passed by reference
+because the value that is copied and passed is the reference to the underlying data
+for mutable types 
+the value that passed includes a reference to the underlying data (which is why changes made inside the function are visible outside to it)
+*
+WHEN WE ASSIGN A REFERENCE TYPE TO ANOTHER VARIABLE, 
+THE NEW VARIABLE REFERENCES THE SAME MEMORY LOCATION..
+
+VALUE SEMANTICS
+when the actual data of a variable is passed to a function or assigned to another variable which means
+new var or function parameter gets a completely independent copy of the data
+value semantics does not involve shared state
+
+value semantics - stack
+pointer semantics - heap
+
+if a type goes with value semantics for receivers, all receivers for that type should be value receivers
+if a type goes with value pointer for receivers, all receivers for that type should be pointer receivers
+
+escapes to heap ---> var shared between main and  Println()
+moved to heap ---> variable moved to heap..
+
+METHOD-SETS
+set of methods attached to a type.
+key to go interface mechanism
+associated with both value and pointer types...
+the idea of method set is integral to how interfaces are implemented and used in go
+interface in go defines a method set
+interface in go defines a method set any type whose method set is a superset of interface method is considered to implement the interface
+* method set of type T consists of all methods with receiver type T
+	called using var of type T
+* method set of type *T consists of all methods with receiver *T or T
+	called using var of type *T
+	can call all methods of corresponding non pointer type as well
 
 FUNCTIONS
+- can be assigned to variables
+- can be passed as arguments to other functions
+- can be returned as values from other functions
+- when a function is assigned to a variable, the variable stores a reference to the function
+
 CHANNELS
+- channels are used for communication between goroutines
+- channels allows to pass data from one goroutine to another
+
+INTERFACES
+- interface type represents method signatures
+- provides a way to specify the behaviour of an object
+
 MUTEX
 
 for the data types of uint8 uint64 int8 and int64 
@@ -340,9 +417,3 @@ installing packages?
 -- go mod init <module-name>
 
 rewatch L44: regarding sphagetti code and modular code/structured programming
-
-
-
-
-
-
