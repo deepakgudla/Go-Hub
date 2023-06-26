@@ -3,6 +3,13 @@ package main
 import "fmt"
 
 func main() {
+
+	//unfurling a slice
+	fmt.Println("unfurling a slice")
+	c := []int{2, 4, 6, 8, 10, 12}
+	b := add(c...)
+	fmt.Println("the sum is ", b)
+
 	sports := []string{"cricket", "badminton", "tennis"}
 	fmt.Println(sports)
 
@@ -113,4 +120,15 @@ func main() {
 	//to print only value --> for _, v and print v
 	//to print only index --> for i and print i
 
+}
+
+// unfurling a slice
+func add(a ...int) int {
+	fmt.Println(a)
+
+	i := 0
+	for _, v := range a {
+		i += v
 	}
+	return i
+}
