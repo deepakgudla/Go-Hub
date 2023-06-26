@@ -1,6 +1,8 @@
 GO
 ***
 go term for threads --> goroutine
+everything in GO is pass by value..
+in go values can be of more than one type
 ***
 Types in GO
   strings
@@ -191,6 +193,23 @@ FUNCTIONS
 - can be passed as arguments to other functions
 - can be returned as values from other functions
 - when a function is assigned to a variable, the variable stores a reference to the function
+syntax - 
+	func (receiver) identifier (parameters) (returns) {}
+	func - keyword
+	receiver - type of method
+	identifier - name of the function
+Sprint - prints the string
+* variadic parameter
+	a function which takes unlimited number of arguments is a variadic parameter
+
+parameters & arguments	
+	define func with parameters (if any)
+	call our func and pass in arguments
+types	
+	no params, no returns
+	1 param no returns	
+	1 param, 1 return
+	2 params, 2 returns
 
 CHANNELS
 - channels are used for communication between goroutines
