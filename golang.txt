@@ -1,8 +1,13 @@
 GO
+---------
+go build - builds the executable file (.exe) can run it as ./filename.exe
+go run - builds executable and runs it
+---------
 ***
 go term for threads --> goroutine
 everything in GO is pass by value..
 in go values can be of more than one type
+go provides built in functions to convert between strings and byte slices
 ***
 Types in GO
   strings
@@ -29,6 +34,58 @@ Types in GO
 . interface
 . map
 . channel
+
+-----STRINGS-----
+- represents a sequence of characters
+- immutable type
+- cannot modify individual characters within a string
+- string values are always interpreted as UTF-8 encoded unicode text
+
+-----BYTES----
+- slice of bytes
+- each element represents a single byte
+- mutable type
+- can modify individual bytes within a byte slice
+- can be used to represent binary data or text in various encodings
+
+***string to byte conversion
+str = "go"
+byte := []byte(str)
+
+*byte to string conversion
+ bytes := []byte{1,3,5,7}
+ str := string(bytes)
+*
+converting between strings and slices involves encoding and decoding operations..
+and should be handled correctly
+
+*byte buffer
+	
+	provides a way to maniulatr in memory byte buffers
+	purpose is to provide a flexible and efficient way to work with sequence of bytes
+	offers methods/functions such as:
+		appending data
+		reading data
+		resizing the buffer
+		converting buffer content to different types(str, int, etc....)
+	a region of memory used to temporarily store a sequence of bytes
+	provides a data structure for efficient manipulation of byte data
+	allows to read and write bytes to and from the buffer
+	used in scenarios to manipulate sequences of bytes efficiently
+	serves as a temporary storage for byte data and enables operations such as :
+		reading
+		writing
+		appending
+		resizing byte sequences
+	useful for tasks like:
+		data serialization
+		network communication
+		file I/O
+		efficient string manipulation
+*
+
+
+
 
 --------ARRAYS-----------
 - static
@@ -86,6 +143,9 @@ user defined types
 2. REUSABILITY
 	inheritance(embedded types(struct,slice,map))
 3. POLYMORPHISM
+	ability of a value of a certain type to also be of another type
+	ability of an object to be of an additional type and take on different behaviours
+	allows values of different types to be treated as instances of a common type
 	inheritances
 4. OVERRIDING
 	promotion???
@@ -175,7 +235,7 @@ if a type goes with value pointer for receivers, all receivers for that type sho
 escapes to heap ---> var shared between main and  Println()
 moved to heap ---> variable moved to heap..
 
-METHOD-SETS
+------METHOD-SETS------ 
 set of methods attached to a type.
 key to go interface mechanism
 associated with both value and pointer types...
@@ -187,8 +247,11 @@ interface in go defines a method set any type whose method set is a superset of 
 * method set of type *T consists of all methods with receiver *T or T
 	called using var of type *T
 	can call all methods of corresponding non pointer type as well
+* 
+a method is nothing more than a function attached to  type.
+when a func is attached to a type, it becomes method of that type
 
-FUNCTIONS
+-------FUNCTIONS--------
 - can be assigned to variables
 - can be passed as arguments to other functions
 - can be returned as values from other functions
