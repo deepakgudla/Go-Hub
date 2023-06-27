@@ -10,7 +10,16 @@ import (
 	"strings"
 )
 
+type number int
+
+func (c number) String() string {
+	return fmt.Sprint("number is : ", strconv.Itoa(int(c)))
+}
+
 func main() {
+	//ascii to str conversion..
+	var z number = 1357
+	fmt.Println(z)
 
 	fmt.Println("Hello World")
 	fmt.Println("enter any number")
