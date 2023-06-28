@@ -10,11 +10,18 @@ learning go
 
 ## Arrays
 
-This is the introduction section.
+- static
+- numbered sequence of elements of the same type
+- does not change in size
+- used for go internals...( ? )
+  > mostly used as a building block in the go
 
 ## Maps
 
-This is the content of section 1.
+- key value storage
+- an ordered group of values of one type called the element type indexed by a set of unique keys of another type called the key type (k,v)
+- powerful data structure that associates value of one type (key) with the value of another type (value)
+- unordered collection of key value pairs
 
 ## Slices
 
