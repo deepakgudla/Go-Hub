@@ -40,5 +40,11 @@ func main() {
 
 	format, overs := nameFour("test cricket:", 90)
 	fmt.Println(format, overs)
+	/* Anonymous function
+ 	syntax --> func(){}()
+	*/
+	func (z int) {
+		fmt.Println("Anonymous number is:", z)
+	} (1357)
 
 }
