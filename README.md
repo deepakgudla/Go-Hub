@@ -4,7 +4,7 @@ learning go
 
 # Table of Contents
 
-- [Arrays](#introduction)
+- [Arrays](#Arrays)
 - [Maps](#Maps)
 - [Slices](#Slices)
 
