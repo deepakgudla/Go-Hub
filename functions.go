@@ -17,7 +17,7 @@ func nameThree(b string) string {
 	return fmt.Sprint("type-3:", b)
 }
 
-// two params and wo
+// two params and two return
 func nameFive(typ string, no string) (string, string) {
 	no = "two return"
 	return fmt.Sprint(typ, " two params and"), no

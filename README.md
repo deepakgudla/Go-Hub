@@ -105,6 +105,17 @@ capacity(max length of the segment)
 * when passed by value any changes made in this function wont affect the original value..
 
 * IN GO EVERYTHING IS PASSED BY VALUE
+* syntax:
+
+```golang
+func main() {
+  a := 1357
+  b := &a
+fmt.Println(*b) //prints the value of a
+  *b = 777
+fmt.Println(b) //prints the address of b
+}
+```
 
 ## Functions
 
@@ -133,6 +144,29 @@ Sprint - prints the string
   - call our func and pass in arguments
 - types
   - no params, no returns
+    ```golang
+    func one() {
+    fmt.Println("type-1: no params and no returns")
+    ```
   - 1 param no returns
+    ```golang
+      func Two(a string) {
+      fmt.Println("type-2:", a) //decalre a in main func()
+    }
+    ```
   - 1 param, 1 return
+    ```golang
+    func Three(b string) string {
+    return fmt.Sprint("type-3:", b) //declare b in main func()
+    }
+    ```
   - 2 params, 2 returns
+    ```golang
+    func nameFour(format string, overs int) (string, int) {
+    overs = 90
+    return fmt.Sprint("no of overs played in a day in ", format), overs
+    }
+    ```
+  ```
+
+  ```
