@@ -8,6 +8,7 @@ learning go
 - [Maps](#Maps)
 - [Slices](#Slices)
 - [Pointers](#Pointers)
+- [functions](#Functions)
 
 ## Arrays
 
@@ -15,7 +16,19 @@ learning go
 - numbered sequence of elements of the same type
 - does not change in size
 - used for go internals...( ? )
-  > mostly used as a building block in the go
+  - mostly used as a building block in the go
+- syntax : 1. array of size x
+  ```golang
+  var x[5] int
+  ```
+- syntax -2 : array literal
+  ```golang
+   z := [...]string{"abcd", "mnop"}
+  ```
+- syntax -3: declaring an array
+  ```golang
+   y := [5]int{1, 2, 3, 4, 5}
+  ```
 
 ## Maps
 
@@ -23,6 +36,10 @@ learning go
 - an ordered group of values of one type called the element type indexed by a set of unique keys of another type called the key type (k,v)
 - powerful data structure that associates value of one type (key) with the value of another type (value)
 - unordered collection of key value pairs
+- syntax: here string is the key & int is the value
+  ```golang
+  <map name> := make(map[string]int)
+  ```
 
 ## Slices
 
@@ -38,6 +55,14 @@ capacity(max length of the segment)
 - has a length and capacity..
 - composite literals (?) are used to create a slice
 - composite literal is created by having the type followed by curly braces and then putting the appropriate values in he curly brace area..
+- syntax :
+  ```golang
+  sliceName := []int{0, 1, 3, 5, 7,}
+  ```
+- syntax
+  ```golang
+  multiSlice := [][]string{weeks, days}
+  ```
 
 ## Pointers
 
@@ -64,20 +89,50 @@ capacity(max length of the segment)
   improper usage of pointers can lead to bugs and errors..
 
 * fundamental operations involving pointers..
-  address operator ( & ) --> gives the address
-  this operator is used to get the memory address of the var
-  eg : if x := 1357 &X will give a pointer to 1357 , it is basically a memory address where the value 1357 is stored...
-  dereferencing operator ( * ) --> gives the value/reference at/to memory address
-  this operator is used to get the value stored at a memory address
-  eg: if a is a pointer to an integer(1357) then *a gives the integer that a points to..
-  if a var is a ptr to something, which is an address, a reference to some address,
-  where a value is stored, we can see the value a that address using asterisk ( \* )
+  - address operator ( & ) - gives the address
+    this operator is used to get the memory address of the var
+    - eg : if x := 1357 &X will give a pointer to 1357 , it is basically a memory address where the value 1357 is stored...
+  - dereferencing operator ( \* ) --> gives the value/reference at/to memory address
+    this operator is used to get the value stored at a memory address
+    - eg: if a is a pointer to an integer(1357) then \*a gives the integer that a points to..
+      if a var is a ptr to something, which is an address, a reference to some address,
+      where a value is stored, we can see the value a that address using asterisk ( \* )
 * POINTER itself is passed by value(fn gets a copy of the address) but the data it points to is same
   dereferencing(\* ) the pointer and modifying the value it points to inside the function will modify the original value
   In go all data is passed by value, i.e whenever we pass data to a function,
   go creates a copy of that data and assigns the copy to a parameter var
   the function can do whatever it wants to copy without affecting the original data
-
 * when passed by value any changes made in this function wont affect the original value..
 
 * IN GO EVERYTHING IS PASSED BY VALUE
+
+## Functions
+
+- can be assigned to variables
+- can be passed as arguments to other functions
+- can be returned as values from other functions
+- when a function is assigned to a variable, the variable stores a reference to the function
+  syntax -
+
+  ```golang
+  func (receiver) identifier (parameters) (returns) {}
+  ```
+
+  - func - keyword
+  - receiver - type of method
+  - identifier - name of the function
+
+Sprint - prints the string
+
+- variadic parameter
+
+  - a function which takes unlimited number of arguments is a variadic parameter
+
+- parameters & arguments
+  - define func with parameters (if any)
+  - call our func and pass in arguments
+- types
+  - no params, no returns
+  - 1 param no returns
+  - 1 param, 1 return
+  - 2 params, 2 returns
