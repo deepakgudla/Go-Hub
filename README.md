@@ -12,6 +12,8 @@ learning go
 
 ## Arrays
 
+[Arrays.go](https://github.com/deepakgudla/golang/blob/main/arrays.go)
+
 - static
 - numbered sequence of elements of the same type
 - does not change in size
@@ -32,6 +34,8 @@ learning go
 
 ## Maps
 
+[maps.go](https://github.com/deepakgudla/golang/blob/main/maps.go)
+
 - key value storage
 - an ordered group of values of one type called the element type indexed by a set of unique keys of another type called the key type (k,v)
 - powerful data structure that associates value of one type (key) with the value of another type (value)
@@ -42,6 +46,8 @@ learning go
   ```
 
 ## Slices
+
+[slices.go](https://github.com/deepakgudla/golang/blob/main/slices.go)
 
 descriptor of an array segment
 includes pointer to the array
@@ -65,6 +71,8 @@ capacity(max length of the segment)
   ```
 
 ## Pointers
+
+[Pointers.go](https://github.com/deepakgudla/golang/blob/main/pointers.go)
 
 - type of data that refers to or points to the location in memory of a value
 - go has several reference types including
@@ -119,6 +127,8 @@ fmt.Println(b) //prints the address of b
 
 ## Functions
 
+[Functions.go](https://github.com/deepakgudla/golang/blob/main/functions.go)
+
 - can be assigned to variables
 - can be passed as arguments to other functions
 - can be returned as values from other functions
@@ -167,6 +177,3 @@ Sprint - prints the string
     return fmt.Sprint("no of overs played in a day in ", format), overs
     }
     ```
-  ```
-
-  ```
