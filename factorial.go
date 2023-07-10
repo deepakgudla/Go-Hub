@@ -1,3 +1,5 @@
+//-------factorial---------:
+
 // package main
 
 // import "fmt"
@@ -16,6 +18,7 @@
 // 	return total
 // }
 
+// ----factorial I/O
 package main
 
 import (
