@@ -3,26 +3,31 @@ package main
 import "fmt"
 
 func main() {
-	a := 10
-	b := 5
+	var x, y int
+
+	fmt.Print("Enter the first number: ")
+	fmt.Scanln(&x)
+
+	fmt.Print("Enter the second number: ")
+	fmt.Scanln(&y)
 
 	
-	sum := a + b
+	sum := x + y
 	fmt.Printf("Sum: %d\n", sum)
 
 	
-	diff := a - b
+	diff := x - y
 	fmt.Printf("Difference: %d\n", diff)
 
 	
-	product := a * b
+	product := x * y
 	fmt.Printf("Product: %d\n", product)
 
 	
-	quotient := a / b
+	quotient := x / y
 	fmt.Printf("Quotient: %d\n", quotient)
 
 	
-	remainder := a % b
+	remainder := x % y
 	fmt.Printf("Remainder: %d\n", remainder)
 }
