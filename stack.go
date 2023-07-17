@@ -54,7 +54,7 @@ func main() {
 	stack.Push(20)
 	stack.Push(30)
 
-	/
+	
 	top, err := stack.Peek()
 	if err == nil {
 		fmt.Println("Top element:", top)
