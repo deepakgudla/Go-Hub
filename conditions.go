@@ -18,6 +18,7 @@ func main () {
 		fmt.Println("y is equal to 135")
 	} else {
 		fmt.Println("print sth")
+fmt.Printf("")
 	}
 
 
