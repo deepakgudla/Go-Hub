@@ -9,6 +9,7 @@ learning go
 - [Slices](#Slices)
 - [Pointers](#Pointers)
 - [functions](#Functions)
+- [channels]((#Channels)
 
 ## Arrays
 
@@ -177,3 +178,5 @@ Sprint - prints the string
     return fmt.Sprint("no of overs played in a day in ", format), overs
     }
     ```
+
+    ##Channels
