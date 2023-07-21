@@ -9,7 +9,7 @@ learning go
 - [Slices](#Slices)
 - [Pointers](#Pointers)
 - [functions](#Functions)
-- [channels]((#Channels)
+- [channels](#Channels)
 
 ## Arrays
 
@@ -179,4 +179,4 @@ Sprint - prints the string
     }
     ```
 
-    ##Channels
+    ## Channels
