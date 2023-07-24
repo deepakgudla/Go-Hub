@@ -40,7 +40,21 @@ func createEmployee(b http.ResponseWriter, a *http.Request) {
 
 }
 func updateEmployee(b http.ResponseWriter, a *http.Request) {
-	//todo..
+	b.Header().Set("Content-Type", "application/json")
+	params := mux.Vars(a)
+	for index, item := range employees{
+		if item.ID == params["id"] {
+			employees = append(employees[:index], employees[index+1:]...)
+			var employee Employee
+			_ = json.NewDecoder(a.Body).Decode(&employee)
+			employee.ID = params["id"]
+			employees =  append(employees, employee)
+			json.NewEncoder(b).Encode(employee)
+			
+			return
+
+		}
+	}
 }
 
 func deleteMovie(b http.ResponseWriter, a *http.Request) {
