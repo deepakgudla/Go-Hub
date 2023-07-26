@@ -3,6 +3,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"log"
 	"math/rand"
@@ -26,6 +27,10 @@ type Company struct {
 
 var employees []Employee
 
+var ErrEmployeeNotFound = errors.New("employee not found")
+
+
+
 func getEmployees(b http.ResponseWriter, a *http.Request) {
 	b.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(b).Encode(employees)
@@ -42,6 +47,7 @@ func createEmployee(b http.ResponseWriter, a *http.Request) {
 func updateEmployee(b http.ResponseWriter, a *http.Request) {
 	b.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(a)
+	employeeFound := false
 	for index, item := range employees{
 		if item.ID == params["id"] {
 			employees = append(employees[:index], employees[index+1:]...)
@@ -50,23 +56,34 @@ func updateEmployee(b http.ResponseWriter, a *http.Request) {
 			employee.ID = params["id"]
 			employees =  append(employees, employee)
 			json.NewEncoder(b).Encode(employee)
+			employeeFound = true
 			
 			return
 
 		}
+
+		if !employeeFound {
+			http.Error(b, "could not find employee or deleted", http.StatusNotFound)
+		}
 	}
 }
 
-func deleteMovie(b http.ResponseWriter, a *http.Request) {
+func deleteEmployee(b http.ResponseWriter, a *http.Request) {
 	b.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(a)
+	employeeFound := false
 	for index, item := range employees {
 		if item.ID == params["id"] {
 			employees = append(employees[:index], employees[index+1:]...)
-			break
+			json.NewEncoder(b).Encode(employees)
+			employeeFound = true
+			return
+		}
+		if !employeeFound {
+			http.Error(b, "could not find employee or deleted", http.StatusNotFound)
+			fmt.Println(http.Error)
 		}
 	}
-	json.NewEncoder(b).Encode(employees)
 }
 
 func getEmployee(b http.ResponseWriter, a *http.Request) {
@@ -94,7 +111,7 @@ func main() {
 	a.HandleFunc("/employees/{id}", getEmployee).Methods("GET")
 	a.HandleFunc("/employees", createEmployee).Methods("POST")
 	a.HandleFunc("/employees/{id}", updateEmployee).Methods("PUT")
-	a.HandleFunc("/movies/{id}", deleteMovie).Methods("DELETE")
+	a.HandleFunc("/employees/{id}", deleteEmployee).Methods("DELETE")
 
 	fmt.Printf("starting server at port 1357\n")
 	log.Fatal(http.ListenAndServe(":1357", a))
