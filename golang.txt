@@ -341,6 +341,11 @@ non-zeroed storage
 %v - values of any type - default format (?)
 %T - for the type of value (returns the datatype of var)
 -----------------------------------------------------------
+string interpolation:
+process of evaluating a string literal containing one or more placeholders,
+yielding a result in which the placeholders are replaced with their corresponding values
+line 336 - 342 does the same
+
 
 in golang we cannot take a value that is float32 and store  it in a var that is declared to hold a value of float64
 
