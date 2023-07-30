@@ -504,3 +504,8 @@ installing packages?
 -- go mod init <module-name>
 
 rewatch L44: regarding sphagetti code and modular code/structured programming
+
+
+**GENERICS**
+	generics allows to abstract code
+
