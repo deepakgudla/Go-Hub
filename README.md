@@ -4,16 +4,16 @@ learning go
 
 # Table of Contents
 
-- [Arrays](#Arrays)
-- [Maps](#Maps)
-- [Slices](#Slices)
-- [Pointers](#Pointers)
-- [functions](#Functions)
-- [channels](#Channels)
+- [Arrays](#arrays)
+- [Maps](#maps)
+- [Slices](#slices)
+- [Pointers](#pointers)
+- [functions](#functions)
+- [channels](#channels)
 
 ## Arrays
 
-[Arrays.go](https://github.com/deepakgudla/golang/blob/main/arrays.go)
+[arrays.go](https://github.com/deepakgudla/golang/blob/main/arrays.go)
 
 - static
 - numbered sequence of elements of the same type
@@ -73,7 +73,7 @@ capacity(max length of the segment)
 
 ## Pointers
 
-[Pointers.go](https://github.com/deepakgudla/golang/blob/main/pointers.go)
+[pointers.go](https://github.com/deepakgudla/golang/blob/main/pointers.go)
 
 - type of data that refers to or points to the location in memory of a value
 - go has several reference types including
@@ -128,7 +128,7 @@ fmt.Println(b) //prints the address of b
 
 ## Functions
 
-[Functions.go](https://github.com/deepakgudla/golang/blob/main/functions.go)
+[functions.go](https://github.com/deepakgudla/golang/blob/main/functions.go)
 
 - can be assigned to variables
 - can be passed as arguments to other functions
@@ -154,6 +154,7 @@ Sprint - prints the string
   - define func with parameters (if any)
   - call our func and pass in arguments
 - types
+
   - no params, no returns
     ```golang
     func one() {
@@ -172,6 +173,7 @@ Sprint - prints the string
     }
     ```
   - 2 params, 2 returns
+
     ```golang
     func nameFour(format string, overs int) (string, int) {
     overs = 90
