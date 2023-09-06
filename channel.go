@@ -5,38 +5,23 @@ import (
 )
 
 func main() {
-	fmt.Println("---channels---")
+	a := make(chan int, 1) //method-2 adding buffer
+	// values are proportional to buffer 2 values the buffer value is 2
+	// b := make(chan int)
+	m := make(<-chan int) //receive
+	n := make(chan<- int) //send
 
-	a := make (chan int)
+	a <- 13
+	a <- 11
+	fmt.Println(<-a) //channel block..
 
-	// go func () {
-	// 	for i:=0;  i<3; i++ {
-	// 		a <-i
-	// 	}
+	fmt.Printf("m\t%T\n", m)
+
+	//method-1 of avoiding channel block
+	// go func() {
+	// 	b <- 11
 	// }()
 
-	// go func() {
-	// 	for {
-	// 		fmt.Println(<-a)
-	// 	}
-	// } ()
-
-	// time.Sleep(time.Minute)
-
-	//---------------------------
-	go abc(a) //sending
-
-	mnop(a)
-
-	fmt.Println(".......exit.......")
+	// fmt.Println(<-b)
 
 }
-
-func abc(a chan<- int) {
-	a <- 1357
-}
-
-func mnop(a<- chan int) {
-	fmt.Println(<-a)
-}
-
