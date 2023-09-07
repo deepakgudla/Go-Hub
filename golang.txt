@@ -1,4 +1,5 @@
 GO
+GO is a statically typed and compiled programming language
 ---------
 go build - builds the executable file (.exe) can run it as ./filename.exe
 go run - builds executable and runs it
@@ -12,11 +13,11 @@ go provides built in functions to convert between strings and byte slices
 Types in GO
   strings
   Bool
-  Integer --> uint8 uint64, int8, int64, uintptr
-  	uint - unsigned integers --> cannot have -ve integers
-  	int - both -ve & +ve integers
-  	uintpr - unisgned pointer ?
-  floating
+  Integer 
+  	uint - unsigned integers --> cannot have -ve integers - [uint, uint8, uint16, uint32, uint64, uintptr]
+  	int - both -ve & +ve integers -- [int, int8, int16, int32, int64]
+  	uintpr - to hold the bit pattern of any pointer
+  float
 	float32
 	float64
   complex ?
