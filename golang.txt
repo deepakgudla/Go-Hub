@@ -112,10 +112,12 @@ and should be handled correctly
 - static
 - numbered sequence of elements of the same type
 - does not change in size
+- arrays have fixed size because size of an array is a part of the type
 - used for go internals...( ? )
 > mostly used as a building block in the go
 
 ---------SLICES--------------
+- abstraction on top of an array
 - descriptor of an array segment
 	 includes pointer to the array
 	 length of the segment
@@ -123,7 +125,7 @@ and should be handled correctly
 - dynamic
 - built on top of an array
 - holds values of the same type
-- changes in size
+- changes in size, does not having fixed size
 - has a length and capacity..
 - composite literals (?) are used to create a slice
 - composite literal is created by having the type followed by curly braces and then putting the appropriate values in he curly brace area..
@@ -378,9 +380,11 @@ non-zeroed storage
 **fmt stands for format** 
 -----------------------------------------------------------
 %d - integers
+%#v - go syntax representation
 %f - float
 %e, %E - scientific notation
-%b - binary
+%b - binary formats the integer to binary representation
+%c - formats the integer to its corresonding unicode character
 %x - hexadecimal, hex encoding
 %s - strings
 %t - booleans
@@ -464,6 +468,10 @@ a select statement chooses which of a set of possible send or recieve operations
 SELECT statement looks similar to a switch statement but with the cases all referring to communication operations
 
 CONCURRENCY 
+ go has built-in concurrency
+ for concurrency go offers go-routines and channels
+ concurrency and parallel execution are different
+ to enable parallel execution concurrency is needed
  refers to to code that is written in a concurrent design pattern 
  which means the code has the potential ability to execute multiple tasks simultaneously 
  where each task may make progress independently of others...
@@ -480,6 +488,10 @@ RACE-CONDITION
 	when you have shared variables and the rewrite gets 
 	screwed up because of having different routines
 	accessing those simultaneously 
+-
+
+go-routine
+	concurrent threads managed by go runtime
 
 **LOOPS**
 
@@ -567,4 +579,6 @@ rewatch L44: regarding sphagetti code and modular code/structured programming
 
 **GENERICS**
 	generics allows to abstract code
+*
+- defer is used to defer the execution of last-in-first-out order until surrounding functions return.
 

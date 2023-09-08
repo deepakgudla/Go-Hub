@@ -42,9 +42,11 @@ learning go
 - powerful data structure that associates value of one type (key) with the value of another type (value)
 - unordered collection of key value pairs
 - syntax: here string is the key & int is the value
+- when iterating over maps, the order is not deterministic
   ```golang
-  <map name> := make(map[string]int)
-  ```
+  <map name> := make(map[string]int) var m map[keyType]valueType
+  func delete(m map[Type]Type1, key Type)  deletes the element with the key from the map.
+  ``` 
 
 ## Slices
 
@@ -59,7 +61,7 @@ capacity(max length of the segment)
 - built on top of an array
 - holds values of the same type
 - changes in size
-- has a length and capacity..
+- has a length and capacity.. (len(slice)), (cap(slice)) 
 - composite literals (?) are used to create a slice
 - composite literal is created by having the type followed by curly braces and then putting the appropriate values in he curly brace area..
 - syntax :
@@ -182,3 +184,5 @@ Sprint - prints the string
     ```
 
     ## Channels
+    
+    - permit communication between goroutines can be buffered or unbuffered.
