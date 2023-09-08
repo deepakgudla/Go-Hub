@@ -1,16 +1,30 @@
 GO
-GO is a statically typed and compiled programming language
+- GO is a statically typed and compiled programming language
 ---------
 go build - builds the executable file (.exe) can run it as ./filename.exe
 go run - builds executable and runs it
 ---------
 ***
-go term for threads --> goroutine
-everything in GO is pass by value..
-in go values can be of more than one type
-go provides built in functions to convert between strings and byte slices
+- go term for threads --> goroutine
+- go does not have classes
+- everything in GO is pass by value..
+- in go values can be of more than one type
+- go provides built in functions to convert between strings and byte slices
+- in GO the name comes before the type in declaration
+	var a string = "hello" .. a := hello .. 
+	var (
+		a, b int
+		c string
+		d complex64
+		e float32
+	)  this is defining var without initialization
+- without initialization var have so called zero vaues which depend on their type
+
 ***
 Types in GO
+  aliases
+	byte for uint8
+	rune for int32
   strings
   Bool
   Integer 
@@ -22,6 +36,11 @@ Types in GO
 	float64
   complex ?
 	complex numbers of imaginary values iota [i] etc...
+	complex64 and complex128 represents complex numbers
+	usefulin geospatial coordinate systems and scientific applications
+	when the real & imaginary parts are float32, complex number is complex64
+	real and imaginary parts are float64, complex numbers are complex128
+
 
 **specification types in golang
 . boolean
@@ -37,6 +56,7 @@ Types in GO
 . channel
 
 -----STRINGS-----
+- read only sequence of bytes
 - represents a sequence of characters
 - immutable type
 - cannot modify individual characters within a string
@@ -171,6 +191,8 @@ lay the fields out from largest to smallest eg: int64, float32, bool
 *int - pointer to int
 --------POINTERS--------
 - type of data that refers to or points to the location in memory of a value
+- addresses of var
+- if a func argument is copied into func, pointers are required when the argument has to be changed
 - go has several reference types including
 	pointers
 	slices
@@ -253,6 +275,7 @@ a method is nothing more than a function attached to  type.
 when a func is attached to a type, it becomes method of that type
 
 -------FUNCTIONS--------
+- if return var names are given in declaration, no need to return explicitly
 - can be assigned to variables
 - can be passed as arguments to other functions
 - can be returned as values from other functions
@@ -275,6 +298,17 @@ types
 	1 param, 1 return
 	2 params, 2 returns
 
+-----METHODS-----
+- methods are defined on types
+- methods are functions, they have receiver argument
+- can declare a method with a receiver only in the same package as the type is defined
+eg: type primeno struct {
+		x, y int
+	}
+	z1 := prime{1,3}
+	can access members using . operator
+	fmt.Println(z1.x, z1.y)
+
 CHANNELS
 - channels are used for communication between goroutines
 - channels allows to pass data from one goroutine to another
@@ -288,6 +322,9 @@ Buffer channel
 INTERFACES
 - interface type represents method signatures
 - provides a way to specify the behaviour of an object
+- collection of method signatures
+- interface value can hold any value that implements those methods
+
 
 MUTEX
 
@@ -341,12 +378,15 @@ non-zeroed storage
 **fmt stands for format** 
 -----------------------------------------------------------
 %d - integers
+%f - float
+%e, %E - scientific notation
 %b - binary
-%x - hexadecimal
+%x - hexadecimal, hex encoding
 %s - strings
 %t - booleans
-%v - values of any type - default format (?)
-%T - for the type of value (returns the datatype of var)
+%v - values of any type which will be converted to string 
+%T - for the type of value (eg: returns the datatype of var)
+%p - pointer address of the variable
 -----------------------------------------------------------
 string interpolation:
 process of evaluating a string literal containing one or more placeholders,
@@ -444,6 +484,7 @@ RACE-CONDITION
 **LOOPS**
 
 --FOR statement-
+	for is the only looping statement in go
 there are three ways we can use loops in GO for the FOR keyword
 - for init; condition; post{}
 - for condition {}
