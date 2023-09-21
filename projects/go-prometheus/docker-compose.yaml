@@ -1,0 +1,8 @@
+---
+version: "3.9"
+services:
+  myapp:
+    build: ./app
+    ports: 
+      - 1357:1357
+      - 3579:3579
