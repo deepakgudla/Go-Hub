@@ -10,16 +10,17 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
-type Employee struct {
-	Name        string `json:"name"`
-	Age         int    `json:"int"`
-	Designation string `json:"designation"`
-}
-
-type metrics struct {
-	emps prometheus.Gauge
-	info *prometheus.GaugeVec //metadat of the app
-}
+type (
+	Employee struct {
+		Name        string `json:"name"`
+		Age         int    `json:"int"`
+		Designation string `json:"designation"`
+	}
+	metrics struct {
+		emps prometheus.Gauge
+		info *prometheus.GaugeVec //metadata of the app
+	}
+)
 
 var emp []Employee
 var info string

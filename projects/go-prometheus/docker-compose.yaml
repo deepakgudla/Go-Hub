@@ -6,3 +6,10 @@ services:
     ports: 
       - 1357:1357
       - 3579:3579
+
+  prometheus:
+    image: prom/prometheus:v2.47.0
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus/prometheus.yml:/home/vitwit/prometheus.yml:rw
