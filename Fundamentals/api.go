@@ -7,8 +7,8 @@ import (
 )
 
 type Cricket struct {
-	Format string `json:"Format"`
-	Overs  string `json:"Overs"`
+	Format string `json:"format"`
+	Overs  string `json:"overs"`
 }
 
 type games []Cricket
