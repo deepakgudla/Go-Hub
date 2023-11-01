@@ -14,7 +14,7 @@ learning go
 
 ## Arrays
 
-[arrays.go](https://github.com/deepakgudla/golang/blob/main/arrays.go)
+[arrays.go](https://github.com/deepakgudla/golang/blob/main/Fundamentals/arrays.go)
 
 - static
 - numbered sequence of elements of the same type
@@ -36,7 +36,7 @@ learning go
 
 ## Maps
 
-[maps.go](https://github.com/deepakgudla/golang/blob/main/maps.go)
+[maps.go](https://github.com/deepakgudla/golang/blob/main/Fundamentals/maps.go)
 
 - key value storage
 - an ordered group of values of one type called the element type indexed by a set of unique keys of another type called the key type (k,v)
@@ -51,7 +51,7 @@ learning go
 
 ## Slices
 
-[slices.go](https://github.com/deepakgudla/golang/blob/main/slices.go)
+[slices.go](https://github.com/deepakgudla/golang/blob/main/Fundamentals/slices.go)
 
 descriptor of an array segment
 includes pointer to the array
@@ -76,7 +76,7 @@ capacity(max length of the segment)
 
 ## Pointers
 
-[pointers.go](https://github.com/deepakgudla/golang/blob/main/pointers.go)
+[pointers.go](https://github.com/deepakgudla/golang/blob/main/Fundamentals/pointers.go)
 
 - type of data that refers to or points to the location in memory of a value
 - go has several reference types including
@@ -131,7 +131,7 @@ fmt.Println(b) //prints the address of b
 
 ## Functions
 
-[functions.go](https://github.com/deepakgudla/golang/blob/main/functions.go)
+[functions.go](https://github.com/deepakgudla/golang/blob/main/Fundamentals/functions.go)
 
 - can be assigned to variables
 - can be passed as arguments to other functions
