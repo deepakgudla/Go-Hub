@@ -10,6 +10,7 @@ learning go
 - [Pointers](#pointers)
 - [functions](#functions)
 - [channels](#channels)
+- [Concurrency](#concurrency)
 
 ## Arrays
 
@@ -182,7 +183,9 @@ Sprint - prints the string
     return fmt.Sprint("no of overs played in a day in ", format), overs
     }
     ```
-
-    ## Channels
     
-    - permit communication between goroutines can be buffered or unbuffered.
+## Channels
+- permit communication between goroutines can be buffered or unbuffered.
+
+## Concurrency
+- In go concurrency is achieved using concurrency
