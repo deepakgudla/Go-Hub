@@ -18,7 +18,7 @@ func cricket_(a http.ResponseWriter, b *http.Request) {
 }
 
 func abcd(a http.ResponseWriter, b *http.Request) {
-	fmt.Fprintf(a,  "cricket is a lovely sport")
+	fmt.Fprintf(a, "cricket is a lovely sport")
 }
 
 func handleRequest() {

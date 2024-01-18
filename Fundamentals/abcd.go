@@ -1,9 +1,7 @@
 /*
-
 %s is for strings
 %d for integers
 %U for unicode numbers...
-
 */
 
 package main

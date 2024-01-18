@@ -29,8 +29,6 @@ var employees []Employee
 
 var ErrEmployeeNotFound = errors.New("employee not found")
 
-
-
 func getEmployees(b http.ResponseWriter, a *http.Request) {
 	b.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(b).Encode(employees)
@@ -48,18 +46,16 @@ func updateEmployee(b http.ResponseWriter, a *http.Request) {
 	b.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(a)
 	employeeFound := false
-	for index, item := range employees{
+	for index, item := range employees {
 		if item.ID == params["id"] {
 			employees = append(employees[:index], employees[index+1:]...)
 			var employee Employee
 			_ = json.NewDecoder(a.Body).Decode(&employee)
 			employee.ID = params["id"]
-			employees =  append(employees, employee)
+			employees = append(employees, employee)
 			json.NewEncoder(b).Encode(employee)
 			employeeFound = true
-			
 			return
-
 		}
 
 		if !employeeFound {
@@ -115,7 +111,6 @@ func main() {
 
 	fmt.Printf("starting server at port 1357\n")
 	log.Fatal(http.ListenAndServe(":1357", a))
-
 }
 
 //need to complete error handling

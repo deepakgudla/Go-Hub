@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main () {
+func main() {
 	x := 4
 	y := 135
 
@@ -13,20 +13,16 @@ func main () {
 	}
 
 	if y < 100 {
-		fmt.Println("number is less than 135") 
-	} else if  y == 135 {
+		fmt.Println("number is less than 135")
+	} else if y == 135 {
 		fmt.Println("y is equal to 135")
 	} else {
 		fmt.Println("print sth")
-fmt.Printf("")
+		fmt.Printf("")
 	}
-
-
-
-
 }
 
-//incorrect syntax 
+//incorrect syntax
 /*
 if ... {
 	fmt.Println("....")
@@ -35,5 +31,4 @@ if ... {
 // else should be adjacent to the closing bracket of if...
 else {
 }
-
 */

@@ -8,14 +8,13 @@ import (
 )
 
 type About struct {
-	Language   string `json:"language"`
+	Language  string `json:"language"`
 	Framework string `json:"framework"`
 }
 
 func main() {
 	http.HandleFunc("/", homeHandler)
 	http.HandleFunc("/about", aboutHandler)
-
 
 	// Start the server
 	fmt.Println("Server listening on port 8080...")
@@ -24,14 +23,13 @@ func main() {
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-
 	// Write the response body
 	fmt.Fprintf(w, "<h1> GOLANG SERVER RESPONSE </h1>")
 }
 
 func aboutHandler(w http.ResponseWriter, r *http.Request) {
-	about := About {
-		Language: "javascript  js",
+	about := About{
+		Language:  "javascript  js",
 		Framework: "reactjs(frontend framework)",
 	}
 	w.Header().Set("Content-Type", "application/json")
@@ -43,9 +41,4 @@ func aboutHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Write(jsonData)
-
-
-
-	
 }
-

@@ -33,5 +33,4 @@ func main() {
 	} else {
 		fmt.Println("added 1 to the entered number:", numRating+1)
 	}
-
 }

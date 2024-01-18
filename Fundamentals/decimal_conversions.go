@@ -15,5 +15,4 @@ func main() {
 	//to print hexadecimal values with 0x
 	fmt.Printf("%v \t %b \t %#X\n", a, a, a)
 	fmt.Printf("the value %v is of type %T\n", a, a)
-
 }
