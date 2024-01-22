@@ -4,19 +4,19 @@ import "fmt"
 
 type node struct {
 	data int
-	next *node  //pointing to the next element
+	next *node //pointing to the next element
 }
 
 type linkedlist struct {
-	head *node
+	head   *node
 	length int
 }
 
-func (l *linkedlist) prepend (n *node) {
+func (l *linkedlist) prepend(n *node) {
 	second := l.head
 	l.head = n
 	l.head.next = second
-	l.length ++
+	l.length++
 }
 
 func main() {
@@ -36,5 +36,4 @@ func main() {
 	list.prepend((node5))
 
 	fmt.Println(list)
-
 }

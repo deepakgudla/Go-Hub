@@ -9,7 +9,7 @@ type Stack struct {
 	items []interface{}
 }
 
-// Push 
+// Push
 func (s *Stack) Push(item interface{}) {
 	s.items = append(s.items, item)
 }
@@ -26,7 +26,6 @@ func (s *Stack) Pop() (interface{}, error) {
 	return item, nil
 }
 
-
 func (s *Stack) Peek() (interface{}, error) {
 	if s.IsEmpty() {
 		return nil, errors.New("Stack is empty")
@@ -41,7 +40,6 @@ func (s *Stack) IsEmpty() bool {
 	return len(s.items) == 0
 }
 
-
 func (s *Stack) Size() int {
 	return len(s.items)
 }
@@ -49,18 +47,15 @@ func (s *Stack) Size() int {
 func main() {
 	stack := &Stack{}
 
-
 	stack.Push(10)
 	stack.Push(20)
 	stack.Push(30)
 
-	
 	top, err := stack.Peek()
 	if err == nil {
 		fmt.Println("Top element:", top)
 	}
 
-	
 	for !stack.IsEmpty() {
 		item, _ := stack.Pop()
 		fmt.Println("Popped:", item)

@@ -47,5 +47,4 @@ func main() {
 	fmt.Println(x["golang"])
 	mapPtr(x, "go")
 	fmt.Println(x["go"])
-
 }

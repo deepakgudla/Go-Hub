@@ -119,7 +119,6 @@ func main() {
 	}
 	//to print only value --> for _, v and print v
 	//to print only index --> for i and print i
-
 }
 
 // unfurling a slice
