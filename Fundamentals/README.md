@@ -188,4 +188,3 @@ Sprint - prints the string
 - permit communication between goroutines can be buffered or unbuffered.
 
 ## Concurrency
-- In go concurrency is achieved using concurrency
