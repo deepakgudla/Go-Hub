@@ -89,5 +89,4 @@ func getEmployees(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	w.Write(z)
-
 }
