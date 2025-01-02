@@ -14,7 +14,6 @@ func main() {
 	}
 
 	//fmt.Println(ab)
-
 	pwd := `qwertymnop`
 
 	err = bcrypt.CompareHashAndPassword(ab, []byte(pwd)) //compares the hash & pwd
