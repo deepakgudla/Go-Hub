@@ -18,7 +18,6 @@ func main() {
 	fmt.Println("goroutines\t", runtime.NumGoroutine())
 
 	wg.Wait()
-
 }
 
 func abcd() {
