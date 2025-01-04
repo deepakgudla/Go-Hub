@@ -17,5 +17,4 @@ func main() {
 	fmt.Println("---variadic parameter")
 	b := sum(1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 777, 1357)
 	fmt.Println("sum of all the values", b)
-
 }

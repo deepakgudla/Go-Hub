@@ -40,8 +40,8 @@ func createEmployee(b http.ResponseWriter, a *http.Request) {
 	employee.ID = strconv.Itoa(rand.Intn(1000000))
 	employees = append(employees, employee)
 	json.NewEncoder(b).Encode(employee)
-
 }
+
 func updateEmployee(b http.ResponseWriter, a *http.Request) {
 	b.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(a)
