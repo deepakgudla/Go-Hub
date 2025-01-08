@@ -27,7 +27,6 @@ func main() {
 	for i, v := range student {
 		fmt.Println("student number :", i)
 		fmt.Println(v.Name, v.Grade, v.Gpa)
-
 	}
 }
 

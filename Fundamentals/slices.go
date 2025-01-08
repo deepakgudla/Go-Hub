@@ -57,8 +57,8 @@ func main() {
 
 	/* [inclusive:exclusive]
 	in this case the exclusive element gets sliced...
-
 	*/
+
 	slicing := []int{0, 1, 3, 5, 7, 11, 13, 135, 1357, 77}
 	fmt.Printf("%v\n", slicing)
 	//fmt.Printf("%#v\n",slicing) --> prints the datatype..

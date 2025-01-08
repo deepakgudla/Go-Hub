@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main () {
+func main() {
 	x := 1
 
 	switch {
@@ -13,6 +13,7 @@ func main () {
 	default:
 		fmt.Println("This is the default case")
 	}
+
 	fmt.Println("---------------------")
 
 	switch x {
@@ -24,9 +25,8 @@ func main () {
 	case 2:
 		fmt.Println("print sth")
 	default:
-		fmt.Println("default case for x") 
+		fmt.Println("default case for x")
 	}
 }
 
 // no break statement for switch....?
-
