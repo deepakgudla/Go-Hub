@@ -2,11 +2,9 @@ package repository
 
 import (
 	"context"
-	"log"
-	"os"
-	"testing"
-
 	"go-mongodb/model"
+	"log"
+	"testing"
 
 	"github.com/google/uuid"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -14,57 +12,50 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
-func MongoClient() *mongo.Client {
-	mongoURI := os.Getenv("MONGODB_URI")
-	log.Println("-------------", mongoURI)
-	if mongoURI == "" {
-		log.Fatal("MONGODB_URI is not set in the environment")
-	}
-
+func newMongoClient() *mongo.Client {
 	mongoTestClient, err := mongo.Connect(context.Background(),
-		options.Client().ApplyURI(mongoURI))
+		options.Client().ApplyURI("mongodb+srv://admin:deepakgudla@cluster0.hhsh2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"))
+
 	if err != nil {
-		log.Fatal("error while connecting to MongoDB:", err)
+		log.Fatal("error while connecting MongoDB", err)
 	}
 
-	log.Println("MongoDB connection established")
+	log.Println("Successfully connected to MongoDB :) ")
 
 	err = mongoTestClient.Ping(context.Background(), readpref.Primary())
 	if err != nil {
-		log.Fatal("ping failed:", err)
+		log.Fatal("ping failed", err)
 	}
 
-	log.Println("Ping success")
+	log.Println("ping success")
 
 	return mongoTestClient
 }
 
 func TestMongoOperations(t *testing.T) {
-	mongoTestClient := MongoClient()
-	defer func() {
-		if err := mongoTestClient.Disconnect(context.Background()); err != nil {
-			t.Fatal("failed to disconnect MongoDB client:", err)
-		}
-	}()
+	mongoTestClient := newMongoClient()
+	defer mongoTestClient.Disconnect(context.Background())
 
-	emp1 := uuid.New().String()
+	empOne := uuid.New().String()
 
 	collection := mongoTestClient.Database("company").Collection("employee_test")
+
 	empRepo := EmployeeRepo{MongoCollection: collection}
 
 	t.Run("Insert Employee 1", func(t *testing.T) {
 		emp := model.Employee{
-			Name:        "Bob",
+			EmployeeID:  empOne,
+			Name:        "bob",
 			Age:         24,
-			Designation: "Backend Developer",
-			EmployeeID:  emp1,
+			Designation: "Backend Engineer",
 		}
 
 		result, err := empRepo.InsertEmployee(&emp)
+
 		if err != nil {
-			t.Fatal("failed to insert employee:", err)
+			t.Fatal("insertion of 1 operation failed", err)
 		}
 
-		t.Log("Employee created successfully:", result)
+		t.Log("Suucessfully inserted 1 employee", result)
 	})
 }
