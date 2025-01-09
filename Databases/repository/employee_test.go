@@ -56,6 +56,67 @@ func TestMongoOperations(t *testing.T) {
 			t.Fatal("insertion of 1 operation failed", err)
 		}
 
-		t.Log("Suucessfully inserted 1 employee", result)
+		t.Log("Successfully inserted 1 employee", result)
+	})
+
+	t.Run("Get Employee 1", func(t *testing.T) {
+		result, err := empRepo.FindEmployeeByID(empOne)
+		if err != nil {
+			t.Fatal("Get operation failed", err)
+		}
+
+		t.Log("emp 1", result.Name)
+	})
+
+	t.Run("Get All employees", func(t *testing.T) {
+		results, err := empRepo.FindAllEmployee()
+		if err != nil {
+			t.Fatal("failed while fetching all employees", err)
+		}
+
+		t.Log("employees", results)
+	})
+
+	t.Run("Update Employee 1 Name", func(t *testing.T) {
+		emp := model.Employee{
+			EmployeeID:  empOne,
+			Name:        "Bob The Builder",
+			Age:         24,
+			Designation: "Backend Engineer",
+		}
+
+		results, err := empRepo.UpdateEmployeeByID(empOne, &emp)
+		if err != nil {
+			log.Fatal("failed to update employee details", err)
+		}
+
+		t.Log("update count", results)
+	})
+
+	t.Run("Get Employee 1 after update", func(t *testing.T) {
+		result, err := empRepo.FindEmployeeByID(empOne)
+		if err != nil {
+			t.Fatal("failed to fetch employee details", err)
+		}
+
+		t.Log("emp 1", result.Name)
+	})
+
+	t.Run("Delete Employee 1", func(t *testing.T) {
+		result, err := empRepo.DeleteEmployeeByID(empOne)
+		if err != nil {
+			t.Fatal("failed to delete employee ", err)
+		}
+
+		t.Log("delete count", result)
+	})
+
+	t.Run("Delete All Employees", func(t *testing.T) {
+		result, err := empRepo.DeleteAllEmployee()
+		if err != nil {
+			t.Fatal("failed to delete all employees", err)
+		}
+
+		t.Log("Successfully deleted all employees", result)
 	})
 }
