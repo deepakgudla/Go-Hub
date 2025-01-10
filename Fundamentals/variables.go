@@ -21,8 +21,8 @@ func main() {
 	var decimal float32 = 1.123456789
 	fmt.Println(decimal)
 
-	var decimall float64 = 135.1234567890
-	fmt.Println(decimall)
+	var decimal_ float64 = 135.1234567890
+	fmt.Println(decimal_)
 
 	var testvar int
 	fmt.Println("testing undeclared value for int....")
