@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"go-mongodb/usecase"
 	"log"
 	"net/http"
 	"os"
@@ -40,8 +41,20 @@ func main() {
 
 	defer mongoClient.Disconnect(context.Background())
 
+	collection := mongoClient.Database(os.Getenv("DB_NAME")).Collection(os.Getenv("COLLECTION_NAME"))
+
+	employeeService := usecase.EmployeeService{MongoCollection: collection}
+
 	r := mux.NewRouter()
 	r.HandleFunc("/health", healthHandler).Methods(http.MethodGet)
+
+	r.HandleFunc("/employee", employeeService.CreateEmployee).Methods(http.MethodPost)
+	r.HandleFunc("/employee/{id}", employeeService.GetEmployeeByID).Methods(http.MethodGet)
+	r.HandleFunc("/employee", employeeService.GetAllEmployee).Methods(http.MethodGet)
+	r.HandleFunc("/employee/{id}", employeeService.UpdateEmployeeByID).Methods(http.MethodPut)
+	r.HandleFunc("/employee/{id}", employeeService.DeleteEmployeeByID).Methods(http.MethodDelete)
+	r.HandleFunc("/employee", employeeService.DeleteAllEmployee).Methods(http.MethodDelete)
+
 	log.Println("server is running on port 1357")
 	http.ListenAndServe(":1357", r)
 }
