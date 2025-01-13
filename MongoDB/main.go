@@ -23,9 +23,9 @@ func init() {
 	}
 	log.Println("Env var loaded")
 
-	mongoClient, err := mongo.Connect(context.Background(), options.Client().ApplyURI(os.Getenv("MONGO_URI")))
+	mongoClient, err = mongo.Connect(context.Background(), options.Client().ApplyURI(os.Getenv("MONGO_URI")))
 	if err != nil {
-		log.Fatal("Database connection failed :( )", err)
+		log.Fatal("Database connection failed :(", err)
 	}
 
 	err = mongoClient.Ping(context.Background(), readpref.Primary())
@@ -34,12 +34,14 @@ func init() {
 	}
 
 	log.Println("Successfully connected to Database :) ")
-
 }
 
 func main() {
-
-	defer mongoClient.Disconnect(context.Background())
+	defer func() {
+		if err := mongoClient.Disconnect(context.Background()); err != nil {
+			log.Fatalf("Failed to disconnect MongoDB client: %v", err)
+		}
+	}()
 
 	collection := mongoClient.Database(os.Getenv("DB_NAME")).Collection(os.Getenv("COLLECTION_NAME"))
 

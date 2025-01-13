@@ -38,7 +38,7 @@ func TestMongoOperations(t *testing.T) {
 
 	empOne := uuid.New().String()
 
-	collection := mongoTestClient.Database("company").Collection("employee_test")
+	collection := mongoTestClient.Database("company").Collection("employees")
 
 	empRepo := EmployeeRepo{MongoCollection: collection}
 
