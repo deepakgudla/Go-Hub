@@ -21,6 +21,7 @@ type Response struct {
 	Error string
 }
 
+// create employee
 func (svc *EmployeeService) CreateEmployee(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 
@@ -53,6 +54,7 @@ func (svc *EmployeeService) CreateEmployee(w http.ResponseWriter, r *http.Reques
 	log.Println("employee created with id", insertID, emp)
 }
 
+// Get All Employees by ID
 func (svc *EmployeeService) GetEmployeeByID(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 
@@ -75,6 +77,8 @@ func (svc *EmployeeService) GetEmployeeByID(w http.ResponseWriter, r *http.Reque
 	res.Data = emp
 	w.WriteHeader(http.StatusOK)
 }
+
+// Get All Employees
 func (svc *EmployeeService) GetAllEmployee(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 
@@ -94,6 +98,8 @@ func (svc *EmployeeService) GetAllEmployee(w http.ResponseWriter, r *http.Reques
 	res.Data = emp
 	w.WriteHeader(http.StatusOK)
 }
+
+// Update Employee By ID
 func (svc *EmployeeService) UpdateEmployeeByID(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 
@@ -134,6 +140,8 @@ func (svc *EmployeeService) UpdateEmployeeByID(w http.ResponseWriter, r *http.Re
 	res.Data = count
 	w.WriteHeader(http.StatusOK)
 }
+
+// Delete Employee By ID
 func (svc *EmployeeService) DeleteEmployeeByID(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 
@@ -156,6 +164,7 @@ func (svc *EmployeeService) DeleteEmployeeByID(w http.ResponseWriter, r *http.Re
 	w.WriteHeader(http.StatusOK)
 }
 
+// Delete All Employees
 func (svc *EmployeeService) DeleteAllEmployee(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 
