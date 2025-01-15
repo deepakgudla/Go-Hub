@@ -12,6 +12,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/readpref"
 )
 
+// testing Database connection
 func newMongoClient() *mongo.Client {
 	mongoTestClient, err := mongo.Connect(context.Background(),
 		options.Client().ApplyURI("mongodb+srv://admin:deepakgudla@cluster0.hhsh2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"))
