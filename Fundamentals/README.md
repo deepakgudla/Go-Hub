@@ -97,7 +97,7 @@ capacity(max length of the segment)
   every location in a pointer has an address
   all values are stored in memory
   pointers refers to a variable that holds the memory address.
-  \*\*pointers allows us to directly manipulate memory and vuild complex data structures..
+  \*\* pointers allows us to directly manipulate memory and vuild complex data structures..
   improper usage of pointers can lead to bugs and errors..
 
 * fundamental operations involving pointers..
@@ -109,14 +109,14 @@ capacity(max length of the segment)
     - eg: if a is a pointer to an integer(1357) then \*a gives the integer that a points to..
       if a var is a ptr to something, which is an address, a reference to some address,
       where a value is stored, we can see the value a that address using asterisk ( \* )
-* POINTER itself is passed by value(fn gets a copy of the address) but the data it points to is same
+* `pointer` itself is passed by value(fn gets a copy of the address) but the data it points to is same
   dereferencing(\* ) the pointer and modifying the value it points to inside the function will modify the original value
   In go all data is passed by value, i.e whenever we pass data to a function,
   go creates a copy of that data and assigns the copy to a parameter var
   the function can do whatever it wants to copy without affecting the original data
 * when passed by value any changes made in this function wont affect the original value..
 
-* IN GO EVERYTHING IS PASSED BY VALUE
+* In Go Everything is `passed by value`
 * syntax:
 
 ```golang
