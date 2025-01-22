@@ -9,7 +9,7 @@ import (
 
 func main() {
 	fmt.Println("api")
-	server := gin.Default() //gin - pre configured server
+	server := gin.Default()
 
 	server.GET("/employees", getEmployees)
 
