@@ -33,6 +33,7 @@ func getEmployees(b http.ResponseWriter, a *http.Request) {
 	b.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(b).Encode(employees)
 }
+
 func createEmployee(b http.ResponseWriter, a *http.Request) {
 	b.Header().Set("Content-Type", "application/json")
 	var employee Employee
