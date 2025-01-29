@@ -15,7 +15,6 @@ func genericG[G int | float64](a, b G) G { //[G int | float64] --> this is calle
 }
 
 //instead of declaring data type in generic, we can do as such
-
 type addNumbers interface {
 	int | float64
 }

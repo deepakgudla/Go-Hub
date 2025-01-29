@@ -13,7 +13,7 @@ func main() {
 	sports := []string{"cricket", "badminton", "tennis"}
 	fmt.Println(sports)
 
-	//to append values to a slice,"append fucntion is used"
+	//to append values to a slice,"append function is used"
 	//append func returns values of same type
 	//adding elements to the existing slice
 	sports = append(sports, "football", "volleyball", "basketball", "golf", "wrestling")
