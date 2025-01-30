@@ -8,8 +8,18 @@ services:
       - 3579:3579
 
   prometheus:
-    image: prom/prometheus:v2.47.0
+    image: prom/prometheus:v2.47.0   #change prometheus version...
     ports:
       - 9090:9090
     volumes:
       - ./prometheus/prometheus.yml:/home/vitwit/prometheus.yml:rw
+
+  grafana:
+    image: grafana/grafana:11.5.0
+    ports: 
+      - 1357:1357
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=qwerty
+    volumes:
+      - ./grafana/datasources.yaml: #specify path
