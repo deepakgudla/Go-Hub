@@ -187,4 +187,6 @@ Sprint - prints the string
 ## Channels
 - permit communication between goroutines can be buffered or unbuffered.
 
-## Concurrency
+### Concurrency
+- Concurrency in Go is achieved through the combination of `goroutines` and `channels`
+- `goroutines` enable efficient concurrency
