@@ -1,6 +1,6 @@
 # golang
 
-learning go
+Go Fundamentals
 
 # Table of Contents
 
