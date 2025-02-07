@@ -8,8 +8,8 @@ Go Fundamentals
 - [Maps](#maps)
 - [Slices](#slices)
 - [Pointers](#pointers)
-- [functions](#functions)
-- [channels](#channels)
+- [Functions](#functions)
+- [Channels](#channels)
 - [Concurrency](#concurrency)
 
 ## Arrays
