@@ -68,7 +68,8 @@ func TestMongoOperations(t *testing.T) {
 
 		t.Log("emp 1", result.Name)
 	})
-
+	
+	//test: get all employees 
 	t.Run("Get All employees", func(t *testing.T) {
 		results, err := empRepo.FindAllEmployee()
 		if err != nil {
