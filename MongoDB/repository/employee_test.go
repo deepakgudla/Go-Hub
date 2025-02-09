@@ -104,6 +104,7 @@ func TestMongoOperations(t *testing.T) {
 		t.Log("emp 1", result.Name)
 	})
 
+	//test: get all employees 
 	t.Run("Delete Employee 1", func(t *testing.T) {
 		result, err := empRepo.DeleteEmployeeByID(empOne)
 		if err != nil {
