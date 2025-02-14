@@ -11,7 +11,6 @@ func main() {
 	//z := make(chan int, 2) buffer channel
 
 	go send(z) //send
-
 	receive(z)
 
 	fmt.Println("exit...")
