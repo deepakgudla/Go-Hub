@@ -23,7 +23,7 @@ func main() {
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	// Write the response body
+	// response body
 	fmt.Fprintf(w, "<h1> GOLANG SERVER RESPONSE </h1>")
 }
 
