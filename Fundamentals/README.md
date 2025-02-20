@@ -53,7 +53,7 @@ Go Fundamentals
 
 [slices.go](https://github.com/deepakgudla/golang/blob/main/Fundamentals/slices.go)
 
-descriptor of an array segment
+Descriptor of an array segment
 includes pointer to the array
 length of the segment
 capacity(max length of the segment)
@@ -78,8 +78,8 @@ capacity(max length of the segment)
 
 [pointers.go](https://github.com/deepakgudla/golang/blob/main/Fundamentals/pointers.go)
 
-- type of data that refers to or points to the location in memory of a value
-- go has several reference types including
+- Type of data that refers to or points to the location in memory of a value
+- Go has several reference types including
 
   - pointers
   - slices
@@ -185,7 +185,7 @@ Sprint - prints the string
     ```
     
 ## Channels
-- permit communication between goroutines can be buffered or unbuffered.
+- Permit communication between goroutines can be buffered or unbuffered.
 
 ### Concurrency
 - Concurrency in Go is achieved through the combination of `goroutines` and `channels`
