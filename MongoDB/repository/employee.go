@@ -13,6 +13,7 @@ type EmployeeRepo struct {
 	MongoCollection *mongo.Collection
 }
 
+// Insert Employee
 func (r *EmployeeRepo) InsertEmployee(emp *model.Employee) (interface{}, error) {
 	result, err := r.MongoCollection.InsertOne(context.Background(), emp)
 	if err != nil {
@@ -21,6 +22,7 @@ func (r *EmployeeRepo) InsertEmployee(emp *model.Employee) (interface{}, error) 
 	return result.InsertedID, nil
 }
 
+// Finding Employee by ID 
 func (r *EmployeeRepo) FindEmployeeByID(empID string) (*model.Employee, error) {
 	var emp model.Employee
 
@@ -34,6 +36,7 @@ func (r *EmployeeRepo) FindEmployeeByID(empID string) (*model.Employee, error) {
 	return &emp, err
 }
 
+// Finding All Employees
 func (r *EmployeeRepo) FindAllEmployee() ([]model.Employee, error) {
 	results, err := r.MongoCollection.Find(context.Background(), bson.D{})
 
@@ -50,6 +53,7 @@ func (r *EmployeeRepo) FindAllEmployee() ([]model.Employee, error) {
 	return emps, nil
 }
 
+// Updating Employee by ID
 func (r *EmployeeRepo) UpdateEmployeeByID(empID string, updateEmp *model.Employee) (int64, error) {
 	result, err := r.MongoCollection.UpdateOne(context.Background(),
 		bson.D{{Key: "employee_id", Value: empID}},
@@ -62,6 +66,7 @@ func (r *EmployeeRepo) UpdateEmployeeByID(empID string, updateEmp *model.Employe
 	return result.ModifiedCount, nil
 }
 
+//Deleting Employee by ID
 func (r *EmployeeRepo) DeleteEmployeeByID(empID string) (int64, error) {
 	result, err := r.MongoCollection.DeleteOne(context.Background(),
 		bson.D{{Key: "employee_id", Value: empID}})
@@ -73,6 +78,7 @@ func (r *EmployeeRepo) DeleteEmployeeByID(empID string) (int64, error) {
 	return result.DeletedCount, nil
 }
 
+// Deleting All Employees 
 func (r *EmployeeRepo) DeleteAllEmployee() (int64, error) {
 	result, err := r.MongoCollection.DeleteMany(context.Background(), bson.D{})
 
