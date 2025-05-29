@@ -10,47 +10,26 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	html := `
-		<!DOCTYPE html>
-		<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<title>Typewriter Font Page</title>
-			<style>
-				body {
-					margin: 0;
-					background-color: black;
-					color: white;
-					height: 100vh;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					font-family: "Courier New", Courier, monospace;
-					font-size: 2em;
-				}
-			</style>
-		</head>
-		<body>
-			<div>I look forward to the wisdom you create 🚀</div>
-		</body>
-		</html>
-	`
-	fmt.Fprint(w, html)
+	fmt.Fprintln(w, "<h1>Jai Mahishmathi ✊</h1>")
 }
 
-func main() {
-	//.env file
-	err := godotenv.Load()
-	if err != nil {
-		log.Println("No .env file found, using default port 8080")
-	}
+func getPort() (string, error) {
+	_ = godotenv.Load() // Optional: log warning if needed
 
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8080"
+		return "", fmt.Errorf("PORT not set in environment")
+	}
+	return port, nil
+}
+
+func main() {
+	port, err := getPort()
+	if err != nil {
+		log.Fatalf("Error: %v", err)
 	}
 
 	http.HandleFunc("/", handler)
-	fmt.Printf("Server running at http://localhost:%s\n", port)
+	fmt.Printf("Server starting at :%s\n", port)
 	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
