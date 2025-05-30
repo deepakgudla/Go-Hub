@@ -107,3 +107,5 @@
     - When the Dockerfile gets updated, Docker only rebuilds the layers that has been modified and the ones after it 
 
 - Layers in the current Dockerfile
+  ![image](https://github.com/user-attachments/assets/f61c3dd1-6b2b-424e-893c-ed240280ccc5)
+
