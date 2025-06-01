@@ -1,6 +1,5 @@
 # Go - Docker
 
-
 ### Folder structure
 ```
 └── 📁Docker
@@ -37,18 +36,15 @@
     - open `http://localhost:1357' on your browser
     - You will be able to see `Jai Mahishmathi ✊`
 
-- NOTE:
+- **NOTE**:
     - If you want to push the Docker image into your own Docker repository, login with your own docker credentials and replace `deepakgudla` with your docker username..
- 
- 
+  
 ### The Go web server
 
 - `main.go`
     - This is a simple web server that listens on a port and responds with a text upon accessing the URL
-
 - `main_test.go`
     - simple unit test to make sure that the web server is working fine 
-
 
 ### Dockerfile
 
@@ -98,7 +94,6 @@
     - This is the command that tells Docker to run the main binary when the container starts
     - This launches the Go web server 
 
-
 #### Layers in the Docker image
 
 - What is a Docker layer ?
@@ -108,4 +103,3 @@
 
 - Layers in the current Dockerfile
   ![image](https://github.com/user-attachments/assets/f61c3dd1-6b2b-424e-893c-ed240280ccc5)
-
