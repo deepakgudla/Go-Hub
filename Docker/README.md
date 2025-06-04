@@ -22,13 +22,13 @@
 - **step-3**Install the dependencies using the following command
     - `go mod tidy`
 - **step-4** Build the docker image using the following command
-    - `docker build -t deepakgudla/go-basic-server:v1 .`
+    - `docker build -t deepakgudla/go-basic-server:latest .`
 - **step-5** Run the docker image using the following command
     - `docker run -p 1357:1357 deepakgudla/go-basic-server:v1`
     - `docker run --env-file .env -p 1357:1357 deepakgudla/go-basic-server:v1`
 - **step-6** To publish the image into Docker hub, please login using `docker login` 
 - **step-7** Push the image into Docker Hub using the following command
-    - `docker push deepakgudla/go-basic-server:v1` 
+    - `docker push deepakgudla/go-basic-server:latest` 
 
 ### Working of Application 
 - If you want to test this application directly, pull the image using the following command
