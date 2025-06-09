@@ -16,25 +16,41 @@
 ### Instructions
 
 - **step-1** clone the repo using the following command
-    - git clone `https://github.com/deepakgudla/Go-Hub.git`
+  ```
+  git clone https://github.com/deepakgudla/Go-Hub.git
+  ```
 - **step-2** change directory to Docker folder using the following command
-    - `cd Docker`
+  ```
+  cd Docker
+  ```
 - **step-3**Install the dependencies using the following command
-    - `go mod tidy`
+  ```
+  go mod tidy
+  ```
 - **step-4** Build the docker image using the following command
-    - `docker build -t deepakgudla/go-basic-server:latest .`
-- **step-5** Run the docker image using the following command
-    - `docker run -e PORT=5050 -p 1357:1357 deepakgudla/go-basic-server`
-    - `docker run --env-file .env -p 1357:1357 deepakgudla/go-basic-server:v1`
-- **step-6** To publish the image into Docker hub, please login using `docker login` 
+  ```
+  docker build -t deepakgudla/go-basic-server:latest .
+  ```
+- **step-5** Run the docker image using the following command     
+  ```
+  docker run -e PORT=5050 -p 1357:1357 deepakgudla/go-basic-server
+  ```
+- **step-6** To publish the image into Docker hub, please login using the following command
+  ```
+  docker login
+  ``` 
 - **step-7** Push the image into Docker Hub using the following command
-    - `docker push deepakgudla/go-basic-server:latest` 
+  ```
+  docker push deepakgudla/go-basic-server:latest`
+  ``` 
 
 ### Working of Application 
 - If you want to test this application directly, pull the image using the following command
-    - `docker pull deepakgudla/go-basic-server`
-    - open `http://localhost:1357' on your browser
-    - You will be able to see `Jai Mahishmathi ✊`
+  ```
+  docker pull deepakgudla/go-basic-server
+  ```
+- open `http://localhost:1357' on your browser
+- You will be able to see `Jai Mahishmathi ✊`
 
 - **NOTE**:
     - If you want to push the Docker image into your own Docker repository, login with your own docker credentials and replace `deepakgudla` with your docker username..
