@@ -41,13 +41,17 @@
   ``` 
 - **step-7** Push the image into Docker Hub using the following command
   ```
-  docker push deepakgudla/go-basic-server:latest`
+  docker push deepakgudla/go-basic-server:latest
   ``` 
 
 ### Working of Application 
 - If you want to test this application directly, pull the image using the following command
   ```
   docker pull deepakgudla/go-basic-server
+  ```
+- Run the docker image using the following command     
+  ```
+  docker run -e PORT=5050 -p 1357:1357 deepakgudla/go-basic-server
   ```
 - open `http://localhost:1357' on your browser
 - You will be able to see `Jai Mahishmathi ✊`
