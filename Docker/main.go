@@ -14,8 +14,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func getPort() (string, error) {
-	_ = godotenv.Load() // Optional: log warning if needed
-
+	_ = godotenv.Load()
 	port := os.Getenv("PORT")
 	if port == "" {
 		return "", fmt.Errorf("PORT not set in environment")
