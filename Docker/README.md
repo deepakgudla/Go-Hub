@@ -53,7 +53,7 @@
   ```
   docker run -e PORT=5050 -p 1357:1357 deepakgudla/go-basic-server
   ```
-- open `http://localhost:1357' on your browser
+- open http://localhost:1357 on your browser
 - You will be able to see `Jai Mahishmathi ✊`
 
 - **NOTE**:
