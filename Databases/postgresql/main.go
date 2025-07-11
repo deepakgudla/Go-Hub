@@ -191,3 +191,7 @@ func deleteBook(w http.ResponseWriter, r *http.Request) {
 
 	w.WriteHeader(http.StatusNoContent)
 }
+
+
+//TODO
+// work on main.go, maintain handlers in a seperate file ?
