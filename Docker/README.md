@@ -23,7 +23,7 @@
   ```
   cd Docker
   ```
-- **step-3**Install the dependencies using the following command
+- **step-3** Install the dependencies using the following command
   ```
   go mod tidy
   ```
@@ -45,6 +45,7 @@
   ``` 
 
 ### Working of Application 
+
 - If you want to test this application directly, pull the image using the following command
   ```
   docker pull deepakgudla/go-basic-server
@@ -77,39 +78,52 @@
     - `FROM` - it is a keyword
     - Uses the official Go (Golang) image version 1.23.1, which includes everything needed to compile Go code
     - `AS builder` - gives this stage a name `builder`
+      
 - `WORKDIR /app`
     - Sets the working directory inside the container to `/app`
     - All the commands after this will run inside the `/app`
+      
 - `COPY go.mod ./`
-    - Copies the Go module files into the container. 
+    - Copies the Go module files into the container
+      
 - `COPY go.sum ./`
     - This file describes the app dependencies
+    
 - `RUN go mod download`
     - Downloads the dependencies described in the go.mod and go.sum files.
+      
 - `COPY . ./`
     - Copies the entire project (all source code) into the container’s /app directory.
+      
 - `RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o main`
     - Compiles the Go app into a binary named main
     - **CGO_ENABLED=0** - disables C bindings for a fully static binary
     - **GOOS=linux** - Go OS, targets linux system
     - **GOARCH** - Go Architecture, targets 64 bit architecture
+      
 - `FROM alpine:latest`
     - Starts a second, clean image using Alpine Linux which is lightweight (has less features compared to ubuntu, efficient for single web server)
+      
 - `Metadata`
-    -  LABEL maintainer="deepakgudla"
+    - LABEL maintainer="deepakgudla"
     - LABEL org.opencontainers.image.source="https://github.com/deepakgudla/Go-Hub"
     - LABEL org.opencontainers.image.description="Basic Go server running on port 1357"
     - LABEL org.opencontainers.image.licenses="MIT"
     - These labels are metadata for the Docker image. The metadata can be found in Docker Hub or container registries
+    
 - `RUN apk --no-cache add ca-certificates`
-    -  Installs root SSL certificates needed for HTTPS connections.
+    -  Installs root SSL certificates needed for HTTPS connections
+
 - `WORKDIR /root/`
     - Sets the working directory to `/root/` inside the container
+    
 - `COPY --from=builder /app/main .`
     - Copies the compiled main binary from the builder stage  into the current stage
+    
 - `EXPOSE 1357` 
     - The docker image is set to run on port 1357
-    - It just exposes the port but does not actually publishes the port 
+    - It just exposes the port but does not actually publishes the port
+      
 - `CMD ["./main"]`
     - This is the command that tells Docker to run the main binary when the container starts
     - This launches the Go web server 
