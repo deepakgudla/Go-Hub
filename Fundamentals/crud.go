@@ -25,6 +25,12 @@ type Company struct {
 	Location string `json:"location"`
 }
 
+type Crud struct{}
+
+func (c Crud) Name() string {
+	return "Crud"
+}
+
 var employees []Employee
 
 var ErrEmployeeNotFound = errors.New("employee not found")
@@ -78,7 +84,6 @@ func deleteEmployee(b http.ResponseWriter, a *http.Request) {
 		}
 		if !employeeFound {
 			http.Error(b, "could not find employee or deleted", http.StatusNotFound)
-			fmt.Println(http.Error)
 		}
 	}
 }
@@ -94,7 +99,7 @@ func getEmployee(b http.ResponseWriter, a *http.Request) {
 	}
 }
 
-func main() {
+func (c Crud) Run() {
 	fmt.Println(("crud operations....."))
 
 	a := mux.NewRouter()
@@ -104,6 +109,7 @@ func main() {
 	employees = append(employees, Employee{ID: "077", FullName: "xyx", Designation: "js-dev", Company: &Company{Name: "mnop", Location: "xyz"}})
 
 	//routes
+	a.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { fmt.Fprint(w, "Server is running successfully 🚀 ") })
 	a.HandleFunc("/employees", getEmployees).Methods("GET")
 	a.HandleFunc("/employees/{id}", getEmployee).Methods("GET")
 	a.HandleFunc("/employees", createEmployee).Methods("POST")
@@ -112,6 +118,10 @@ func main() {
 
 	fmt.Printf("starting server at port 1357\n")
 	log.Fatal(http.ListenAndServe(":1357", a))
+}
+
+func init() {
+	Register(Crud{})
 }
 
 //need to complete error handling

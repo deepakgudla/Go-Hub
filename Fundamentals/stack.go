@@ -9,6 +9,12 @@ type Stack struct {
 	items []interface{}
 }
 
+type Stack_ds struct{}
+
+func (s Stack_ds) Name() string {
+	return "stack"
+}
+
 // Push
 func (s *Stack) Push(item interface{}) {
 	s.items = append(s.items, item)
@@ -44,7 +50,7 @@ func (s *Stack) Size() int {
 	return len(s.items)
 }
 
-func main() {
+func (s Stack_ds) Run() {
 	stack := &Stack{}
 
 	stack.Push(10)
@@ -60,4 +66,8 @@ func main() {
 		item, _ := stack.Pop()
 		fmt.Println("Popped:", item)
 	}
+}
+
+func init() {
+	Register(Stack_ds{})
 }

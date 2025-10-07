@@ -16,7 +16,13 @@ type company struct {
 	name string //embedded struct
 }
 
-func main() {
+type Struct_ struct{}
+
+func (s Struct_) Name() string {
+	return "Struct"
+}
+
+func (s Struct_) Run() {
 	fmt.Println("---structs---")
 
 	employeeone := struct { //anonymous struct
@@ -50,4 +56,8 @@ func main() {
 	fmt.Printf("Hello %v\n", comp.name)
 	fmt.Println(employeeone.name)
 	fmt.Println(comp.employee.name) //embedded struct
+}
+
+func init() {
+	Register(Struct_{})
 }

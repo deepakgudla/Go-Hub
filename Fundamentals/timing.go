@@ -5,9 +5,15 @@ import (
 	"time"
 )
 
-func main() {
+type Timestamp struct{}
 
-	fmt.Println("time in go program")
+func (t Timestamp) Name() string {
+	return "Timestamp"
+}
+
+func (t Timestamp) Run() {
+
+	fmt.Println("Current Time:")
 
 	currentTime := time.Now()
 	fmt.Println(currentTime)
@@ -15,4 +21,8 @@ func main() {
 
 	// createdDate := time.Date(2001, time.January)
 	// fmt.Println(createdDate)
+}
+
+func init() {
+	Register(Timestamp{})
 }

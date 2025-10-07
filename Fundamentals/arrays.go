@@ -2,7 +2,13 @@ package main
 
 import "fmt"
 
-func main() {
+type Array struct{}
+
+func (a Array) Name() string {
+	return "Array"
+}
+
+func (a Array) Run() {
 	fmt.Println("-------arrays-------")
 	//method #1 of declaring array
 	var x [5]int
@@ -22,4 +28,8 @@ func main() {
 	fmt.Printf("%#v and the datatype is %T\n", y, y)
 	fmt.Println(len(z))
 	fmt.Println(len(y))
+}
+
+func init() {
+	Register(Array{})
 }

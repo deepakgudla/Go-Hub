@@ -1,10 +1,16 @@
-//map in GO
+//map in Go
 
 package main
 
 import "fmt"
 
-func main() {
+type Map_ struct{}
+
+func (m Map_) Name() string {
+	return "Map"
+}
+
+func (m Map_) Run() {
 	fmt.Println("---MAPS---")
 	cricket := map[string]int{
 		"test": 90,
@@ -67,4 +73,8 @@ func main() {
 	// } else {
 	// 	fmt.Println("key does not exist")
 	// }
+}
+
+func init() {
+	Register(Map_{})
 }

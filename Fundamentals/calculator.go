@@ -2,27 +2,33 @@ package main
 
 import "fmt"
 
-func main() {
-	var x, y int
+type Calculator struct{}
 
-	fmt.Print("Enter the first number: ")
-	fmt.Scanln(&x)
+func (c Calculator) Name() string {
+	return "Calculator"
+}
 
-	fmt.Print("Enter the second number: ")
-	fmt.Scanln(&y)
+func (c Calculator) Run() {
+	fmt.Println("Running Calculator Example")
+	defer fmt.Println()
 
-	sum := x + y
-	fmt.Printf("Sum: %d\n", sum)
+	var a, b int
+	fmt.Print("Enter two numbers (space separated): ")
+	fmt.Scanln(&a, &b)
 
-	diff := x - y
-	fmt.Printf("Difference: %d\n", diff)
+	fmt.Printf("a + b = %d\n", a+b)
+	fmt.Printf("a - b = %d\n", a-b)
+	fmt.Printf("a * b = %d\n", a*b)
 
-	product := x * y
-	fmt.Printf("Product: %d\n", product)
+	if b != 0 {
+		fmt.Printf("a / b = %d\n", a/b)
+		fmt.Printf("a %% b = %d\n", a%b)
+	} else {
+		fmt.Println("Cannot divide by zero")
+	}
+}
 
-	quotient := x / y
-	fmt.Printf("Quotient: %d\n", quotient)
-
-	remainder := x % y
-	fmt.Printf("Remainder: %d\n", remainder)
+// Auto-register on package init
+func init() {
+	Register(Calculator{})
 }

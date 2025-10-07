@@ -2,7 +2,13 @@ package main
 
 import "fmt"
 
-func main() {
+type Slice_ struct{}
+
+func (s Slice_) Name() string {
+	return "Slice"
+}
+
+func (s Slice_) Run() {
 
 	//unfurling a slice
 	fmt.Println("unfurling a slice")
@@ -19,10 +25,10 @@ func main() {
 	sports = append(sports, "football", "volleyball", "basketball", "golf", "wrestling")
 	fmt.Println(sports)
 
-	sports = append(sports[1:5]) //prints 1 2 3 4
+	sports = sports[1:5] //prints 1 2 3 4
 	fmt.Println(sports)
 
-	sports = append(sports[2:6]) // prints 2 3 4 5
+	sports = (sports[2:6]) // prints 2 3 4 5
 	fmt.Println(sports)
 	//sports = append(sports[1:5][2:6]) // ?
 	//fmt.Println(sports)
@@ -132,4 +138,8 @@ func add(a ...int) int {
 		i += v
 	}
 	return i
+}
+
+func init() {
+	Register(Slice_{})
 }

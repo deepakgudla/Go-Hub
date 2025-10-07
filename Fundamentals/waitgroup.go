@@ -8,7 +8,13 @@ import (
 
 var wg sync.WaitGroup
 
-func main() {
+type WG struct{}
+
+func (w WG) Name() string {
+	return "Wait_Group"
+}
+
+func (w WG) Run() {
 	fmt.Println("goroutines\t", runtime.NumGoroutine())
 	wg.Add(1)
 
@@ -31,4 +37,8 @@ func mnop() {
 		fmt.Println("mnop-count", i)
 	}
 	wg.Done()
+}
+
+func init() {
+	Register(WG{})
 }

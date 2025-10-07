@@ -10,27 +10,35 @@ import (
 	"strings"
 )
 
-type number int
+// type number int
 
-func (c number) String() string {
-	return fmt.Sprint("number is : ", strconv.Itoa(int(c)))
+type Convert struct{}
+
+func (c Convert) Name() string {
+	return "Convert"
 }
 
-func main() {
-	//ascii to str conversion..
-	var z number = 1357
-	fmt.Println(z)
+func (c Convert) Run() {
+	fmt.Print("Enter any number: ")
 
-	fmt.Println("Hello World")
-	fmt.Println("enter any number")
 	reader := bufio.NewReader(os.Stdin)
-	input, _ := reader.ReadString('\n')
-	fmt.Println("number entered:", input)
-	//parsefloat converts the string to a float number
-	numRating, err := strconv.ParseFloat(strings.TrimSpace(input), 64)
+	input, err := reader.ReadString('\n')
 	if err != nil {
-		fmt.Println(err)
-	} else {
-		fmt.Println("added 1 to the entered number:", numRating+1)
+		fmt.Println("Failed to read input:", err)
+		return
 	}
+
+	input = strings.TrimSpace(input)
+	num, err := strconv.ParseFloat(input, 64)
+	if err != nil {
+		fmt.Printf("Invalid number %q: %v\n", input, err)
+		return
+	}
+
+	fmt.Printf("Number entered: %.2f\n", num)
+	fmt.Printf("After adding 1: %.2f\n", num+1)
+}
+
+func init() {
+	Register(Convert{})
 }

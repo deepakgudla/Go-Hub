@@ -9,7 +9,13 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func main() {
+type PasswordCheckIO struct{}
+
+func (pc PasswordCheckIO) Name() string {
+	return "PasswordCheck_IO"
+}
+
+func (pc PasswordCheckIO) Run() {
 	reader := bufio.NewReader(os.Stdin)
 
 	fmt.Print("Enter your password 🔑: ")
@@ -33,4 +39,8 @@ func main() {
 	}
 
 	fmt.Println("Passwords matched ✅")
+}
+
+func init() {
+	Register(PasswordCheckIO{})
 }

@@ -5,9 +5,18 @@ import (
 	"math/rand"
 )
 
-func main() {
-	fmt.Println(rand.Intn(1357))
+type RandomNumberGenerator struct{}
+
+func (r RandomNumberGenerator) Name() string {
+	return "RandomNumberGenerator"
 }
 
+func (r RandomNumberGenerator) Run() {
+	fmt.Println("The number is:", rand.Intn(999))
+}
+
+func init() {
+	Register(RandomNumberGenerator{})
+}
 
 //internal working ?

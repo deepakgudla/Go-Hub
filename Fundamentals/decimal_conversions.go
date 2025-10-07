@@ -2,7 +2,13 @@ package main
 
 import "fmt"
 
-func main() {
+type Decimal struct{}
+
+func (d Decimal) Name() string {
+	return "Decimal"
+}
+
+func (d Decimal) Run() {
 	a := 0x38f
 	//to print a number as binary add (%b) tag...
 	fmt.Printf("8 as binary %b\n", a)
@@ -15,4 +21,8 @@ func main() {
 	//to print hexadecimal values with 0x
 	fmt.Printf("%v \t %b \t %#X\n", a, a, a)
 	fmt.Printf("the value %v is of type %T\n", a, a)
+}
+
+func init() {
+	Register(Decimal{})
 }

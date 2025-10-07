@@ -5,7 +5,13 @@ import "fmt"
 const HelloWorld string = "hello-world"
 const helloworld string = "qwertyuiop"
 
-func main() {
+type Store struct{}
+
+func (s Store) Name() string {
+	return "Store"
+}
+
+func (s Store) Run() {
 	//string datatype
 	var username string = "golang"
 	fmt.Println(username)
@@ -42,4 +48,8 @@ func main() {
 	//we can declare & initialize multiple var all at once
 	a, b, c, d, e := 1, 2, 3, 4, 5
 	fmt.Println(a, b, c, d, e)
+}
+
+func init() {
+	Register(Store{})
 }

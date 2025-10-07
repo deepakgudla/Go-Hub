@@ -11,7 +11,13 @@ type course struct {
 	Gpa   int    `json:"Gpa"`
 }
 
-func main() {
+type Unmarsh struct{}
+
+func (u Unmarsh) Name() string {
+	return "Unmarsh"
+}
+
+func (u Unmarsh) Run() {
 
 	a := `[{"Name":"computer networks","Grade":"B","Gpa":8},{"Name":"Blockchain","Grade":"A","Gpa":10}]`
 	aa := []byte(a)
@@ -30,5 +36,9 @@ func main() {
 	}
 }
 
+func init() {
+	Register(Unmarsh{})
+}
+
 //output from "marshal.go"
-// [{"Name":"computer networks","Grade":"B","Gpa":8},{"Name":"Blockchain","Grade":"A","Gpa":10}] - L16
+// [{"Name":"computer networks","Grade":"B","Gpa":8},{"Name":"Blockchain","Grade":"A","Gpa":10}]

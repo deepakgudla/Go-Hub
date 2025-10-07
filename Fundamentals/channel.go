@@ -4,7 +4,13 @@ import (
 	"fmt"
 )
 
-func main() {
+type Channel struct{}
+
+func (c Channel) Name() string {
+	return "Channel"
+}
+
+func (c Channel) Run() {
 	a := make(chan int, 1) //method-2 adding buffer
 	// values are proportional to buffer 2 values the buffer value is 2
 	// b := make(chan int)
@@ -16,6 +22,7 @@ func main() {
 	fmt.Println(<-a) //channel block..
 
 	fmt.Printf("m\t%T\n", m)
+	fmt.Printf("n\t%T\n", n)
 
 	//method-1 of avoiding channel block
 	// go func() {
@@ -23,4 +30,8 @@ func main() {
 	// }()
 
 	// fmt.Println(<-b)
+}
+
+func init() {
+	Register(Channel{})
 }

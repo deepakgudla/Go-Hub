@@ -2,7 +2,13 @@ package main
 
 import "fmt"
 
-func main() {
+type Mod struct{}
+
+func (m Mod) Name() string {
+	return "Mod"
+}
+
+func (m Mod) Run() {
 
 	a := 22 / 10
 	b := 22 % 10
@@ -13,4 +19,8 @@ func main() {
 			fmt.Printf("odd number is %v\n", i)
 		}
 	}
+}
+
+func init() {
+	Register(Mod{})
 }

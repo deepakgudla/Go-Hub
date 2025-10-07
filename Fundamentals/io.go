@@ -8,7 +8,13 @@ import (
 	"os"
 )
 
-func main() {
+type InOut struct{}
+
+func (i InOut) Name() string {
+	return "Input_Output"
+}
+
+func (i InOut) Run() {
 
 	welcome := "helloworld"
 	fmt.Println(welcome)
@@ -25,6 +31,10 @@ func main() {
 
 	input, _ := reader.ReadString('\n')
 	//fmt.Println(err)
-	fmt.Print("name successfully registered as = ", input)
+	fmt.Print("Name successfully registered as ", input)
 	//fmt.Println(err)
+}
+
+func init() {
+	Register(InOut{})
 }

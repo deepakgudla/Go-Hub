@@ -2,7 +2,13 @@ package main
 
 import "fmt"
 
-func main() {
+type Conditions struct{}
+
+func (c Conditions) Name() string {
+	return "Conditions"
+}
+
+func (c Conditions) Run() { //main
 	x := 4
 	y := 135
 
@@ -20,6 +26,10 @@ func main() {
 		fmt.Println("print sth")
 		fmt.Printf("")
 	}
+}
+
+func init() {
+	Register(Conditions{})
 }
 
 //incorrect syntax

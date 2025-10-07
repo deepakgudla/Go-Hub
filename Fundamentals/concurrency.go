@@ -1,12 +1,10 @@
-#concurrency
-
 package main
 
 import (
 	"fmt"
 )
 
-func main() {
-    #todo- concurrency code
-   fmt.Println("concurrency-code")
+func Concur() {
+	//todo- concurrency code
+	fmt.Println("concurrency-code")
 }

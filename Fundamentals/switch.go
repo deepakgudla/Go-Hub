@@ -2,7 +2,13 @@ package main
 
 import "fmt"
 
-func main() {
+type Switch_Loop struct{}
+
+func (s Switch_Loop) Name() string {
+	return "Switch"
+}
+
+func (s Switch_Loop) Run() {
 	x := 1
 
 	switch {
@@ -27,6 +33,10 @@ func main() {
 	default:
 		fmt.Println("default case for x")
 	}
+}
+
+func init() {
+	Register(Switch_Loop{})
 }
 
 // no break statement for switch....?

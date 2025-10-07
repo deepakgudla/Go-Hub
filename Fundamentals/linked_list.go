@@ -12,6 +12,8 @@ type linkedlist struct {
 	length int
 }
 
+type LinkedList_ds struct{}
+
 func (l *linkedlist) prepend(n *node) {
 	second := l.head
 	l.head = n
@@ -19,7 +21,11 @@ func (l *linkedlist) prepend(n *node) {
 	l.length++
 }
 
-func main() {
+func (l LinkedList_ds) Name() string {
+	return "Linked_list"
+}
+
+func (l LinkedList_ds) Run() {
 
 	list := linkedlist{}
 
@@ -36,4 +42,8 @@ func main() {
 	list.prepend((node5))
 
 	fmt.Println(list)
+}
+
+func init() {
+	Register(LogicalOp{})
 }

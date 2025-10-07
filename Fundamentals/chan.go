@@ -6,7 +6,13 @@ import (
 	"fmt"
 )
 
-func main() {
+type ChannelSignal struct{}
+
+func (cs ChannelSignal) Name() string {
+	return "Channel_Signal"
+}
+
+func (cs ChannelSignal) Run() {
 	z := make(chan int)
 	//z := make(chan int, 2) buffer channel
 
@@ -24,4 +30,8 @@ func send(z chan<- int) {
 func receive(z <-chan int) {
 	fmt.Println("received value", <-z)
 	// fmt.Println(<-z) printing buffer
+}
+
+func init() {
+	Register(ChannelSignal{})
 }

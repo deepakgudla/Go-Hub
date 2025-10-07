@@ -1,8 +1,23 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
+
+type FactorialExample struct{}
+
+func (f FactorialExample) Name() string {
+	return "Factorial"
+}
+
+// factorial logic
+func (f FactorialExample) Run() {
+	fmt.Println("🔢 Running Factorial Example")
+	defer fmt.Println()
+
+	var num int
+	fmt.Print("Enter a number: ")
+	fmt.Scanln(&num)
+	fmt.Printf("Factorial of %d is %d\n", num, factorial(num))
+}
 
 func factorial(n int) int {
 	if n <= 1 {
@@ -11,9 +26,7 @@ func factorial(n int) int {
 	return n * factorial(n-1)
 }
 
-func main() {
-	var num int
-	fmt.Print("Enter a number: ")
-	fmt.Scanln(&num)
-	fmt.Printf("Factorial of %d is %d\n", num, factorial(num))
+// Execution code
+func init() {
+	Register(FactorialExample{})
 }

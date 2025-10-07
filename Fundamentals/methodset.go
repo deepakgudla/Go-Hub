@@ -11,20 +11,26 @@ type game interface {
 	franchise()
 }
 
+type SetMethod_ struct{}
+
+func (s SetMethod_) Name() string {
+	return "Set_Method"
+}
+
 func (b cricket) play() {
 	fmt.Println("ultimate format of cricket is", b.format)
 }
 
 func (b *cricket) franchise() {
 	b.format = "ipl"
-	fmt.Println("RCB never won", b.format, "IPL Trophy...")
+	fmt.Println("RCB won", b.format, "Trophy...")
 }
 
 func gameCricket(z game) {
 	z.play()
 }
 
-func main() {
+func (s SetMethod_) Run() {
 
 	//value semantic of type T with receiver T
 	a := cricket{"test"}
@@ -41,4 +47,8 @@ func main() {
 	/*
 		cricket does not implement game (method franchise has pointer receiver)
 	*/
+}
+
+func init() {
+	Register(SetMethod_{})
 }

@@ -16,7 +16,13 @@ func mapPtr(y map[string]int, z string) {
 	y[z] = 17
 }
 
-func main() {
+type Pointer struct{}
+
+func (p Pointer) Name() string {
+	return "Pointer"
+}
+
+func (p Pointer) Run() {
 	fmt.Println("-----pointers-----")
 	a := 1357
 	var sport string = "cricket"
@@ -26,7 +32,7 @@ func main() {
 	fmt.Printf("address of the var %v is  %v \n", a, &a) //printing the address of the var a
 	fmt.Printf("data type of %v is %T and its address is %v\n", sport, &sport, &sport)
 	fmt.Printf("address of the var %v is  %v \n", b, &b)
-	fmt.Printf("value is %v\n", *&a)
+	fmt.Printf("value is %v\n", a)
 
 	*b = 777
 	fmt.Println(a)
@@ -47,4 +53,8 @@ func main() {
 	fmt.Println(x["golang"])
 	mapPtr(x, "go")
 	fmt.Println(x["go"])
+}
+
+func init() {
+	Register(Pointer{})
 }

@@ -5,30 +5,34 @@ import (
 	"fmt"
 )
 
-type course struct {
-	Name string
+type graduate struct {
+	Name  string
 	Grade string
-	Gpa int
+	Gpa   int
 }
 
-type exam struct {}
+type Marsh_ struct{}
 
-func main( ) {
+func (m Marsh_) Name() string {
+	return "Marshal"
+}
+
+func (m Marsh_) Run() {
 	fmt.Println("marshal aka serialization")
 
-	c1 := course{
-		Name: "computer networks",
+	c1 := graduate{
+		Name:  "computer networks",
 		Grade: "B",
-		Gpa: 8,
+		Gpa:   8,
 	}
 
-	c2 := course {
-		Name: "Blockchain",
+	c2 := graduate{
+		Name:  "Blockchain",
 		Grade: "A",
-		Gpa: 10,
+		Gpa:   10,
 	}
 
-	student := []course{c1, c2}
+	student := []graduate{c1, c2}
 	fmt.Println(student)
 
 	ab, err := json.Marshal(student)
@@ -36,4 +40,8 @@ func main( ) {
 		fmt.Println(err)
 	}
 	fmt.Println(string(ab))
+}
+
+func init() {
+	Register(Marsh_{})
 }

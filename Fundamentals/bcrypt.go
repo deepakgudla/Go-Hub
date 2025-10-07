@@ -6,7 +6,14 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-func main() {
+type PasswordCheck struct{}
+
+func (p PasswordCheck) Name() string {
+	return "PasswordCheck"
+
+}
+
+func (p PasswordCheck) Run() {
 	a := `qwertymnop`
 	ab, err := bcrypt.GenerateFromPassword([]byte(a), bcrypt.MinCost)
 	if err != nil {
@@ -22,4 +29,8 @@ func main() {
 		return
 	}
 	fmt.Println("password matched...........")
+}
+
+func init() {
+	Register(PasswordCheck{})
 }

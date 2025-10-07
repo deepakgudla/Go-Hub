@@ -12,13 +12,19 @@ type About struct {
 	Framework string `json:"framework"`
 }
 
-func main() {
+type Server_ struct{}
+
+func (s Server_) Name() string {
+	return "Server"
+}
+
+func (s Server_) Run() {
 	http.HandleFunc("/", homeHandler)
 	http.HandleFunc("/about", aboutHandler)
 
 	// Start the server
-	fmt.Println("Server listening on port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	fmt.Println("Server listening on port 2468...")
+	log.Fatal(http.ListenAndServe(":2468", nil))
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -41,4 +47,8 @@ func aboutHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Write(jsonData)
+}
+
+func init() {
+	Register(Server_{})
 }
