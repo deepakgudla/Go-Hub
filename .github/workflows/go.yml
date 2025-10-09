@@ -1,7 +1,4 @@
-# This workflow will build a golang project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
-name: Go
+name: Go CI
 
 on:
   push:
@@ -10,13 +7,21 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        module: [Fundamentals, Databases, Docker, Projects]
+        module:
+          - Fundamentals
+          - Databases/MongoDB
+          - Databases/postgresql
+          - Docker
+          - Projects/go-prometheus/my-app
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Go
         uses: actions/setup-go@v4
@@ -26,10 +31,12 @@ jobs:
       - name: Build ${{ matrix.module }}
         working-directory: ${{ matrix.module }}
         run: |
+          echo "🔧 Building module: ${{ matrix.module }}"
           go mod tidy
           go build -v ./...
 
-      - name: Test ${{ matrix.module }}
+      - name: Run tests for ${{ matrix.module }}
         working-directory: ${{ matrix.module }}
-        run: go test -v ./...
-          || echo "⚠️ No buildable Go files found in Projects"
+        run: |
+          echo "🧪 Running tests for module: ${{ matrix.module }}"
+          go test -v ./... || echo "⚠️ No tests found in ${{ matrix.module }}"
