@@ -38,5 +38,5 @@ jobs:
       - name: Run tests for ${{ matrix.module }}
         working-directory: ${{ matrix.module }}
         run: |
-          echo "🧪 Running tests for module: ${{ matrix.module }}"
-          go test -v ./... || echo "⚠️ No tests found in ${{ matrix.module }}"
+          echo " Running tests for module: ${{ matrix.module }}"
+          go test -v ./... || echo " No tests found in ${{ matrix.module }}"
