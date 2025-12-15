@@ -37,7 +37,10 @@ var ErrEmployeeNotFound = errors.New("employee not found")
 
 func getEmployees(b http.ResponseWriter, a *http.Request) {
 	b.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(b).Encode(employees)
+	if err := json.NewEncoder(b).Encode(employees); err != nil {
+		http.Error(b, "failed to encode response", http.StatusInternalServerError)
+		return
+	}
 }
 
 func createEmployee(b http.ResponseWriter, a *http.Request) {

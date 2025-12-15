@@ -14,7 +14,10 @@ func (c Calculator) Run() {
 
 	var a, b int
 	fmt.Print("Enter two numbers (space separated): ")
-	fmt.Scanln(&a, &b)
+	if _, err := fmt.Scanln(&a, &b); err != nil {
+		fmt.Println("Invalid input:", err)
+		return
+	}
 
 	fmt.Printf("a + b = %d\n", a+b)
 	fmt.Printf("a - b = %d\n", a-b)

@@ -142,7 +142,7 @@ fmt.Println(b) //prints the address of b
   ```golang
   func (receiver) identifier (parameters) (returns) {}
   ```
-
+  
   - func - keyword
   - receiver - type of method
   - identifier - name of the function
@@ -162,6 +162,7 @@ Sprint - prints the string
     ```golang
     func one() {
     fmt.Println("type-1: no params and no returns")
+    }
     ```
   - 1 param no returns
     ```golang

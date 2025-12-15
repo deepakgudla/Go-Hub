@@ -17,9 +17,9 @@ type Cricket struct {
 	Overs  string `json:"overs"`
 }
 
-func cricket_(a http.ResponseWriter, b *http.Request) {
-	fmt.Println("cricket is a lovely sport")
-}
+// func cricket_(a http.ResponseWriter, b *http.Request) {
+// 	fmt.Println("cricket is a lovely sport")
+// }
 
 func cricketHandler(a http.ResponseWriter, b *http.Request) {
 	fmt.Fprintf(a, "cricket is a lovely sport")
