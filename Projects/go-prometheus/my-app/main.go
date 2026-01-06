@@ -90,3 +90,10 @@ func getEmployees(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 	w.Write(z)
 }
+
+
+/* 
+1. Update the code with a proper structure
+2. Export metrics with `metrics.go`
+*/
+
